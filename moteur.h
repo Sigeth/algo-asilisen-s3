@@ -13,7 +13,8 @@ typedef enum TypeAvion{
 typedef enum TypePiste {
     PETITE,
     MOYENNE,
-    GRANDE
+    GRANDE,
+    PARKING
 }TypePiste;
 
  
