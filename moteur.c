@@ -46,3 +46,23 @@ void afficheListe(avion* liste){
     }
 }
 
+int verifPiste(avion* avion,piste* piste){
+    //piste petite/moy 
+    if(piste->pisteType>0 && piste->pisteType <3) {
+        if(avion->avionType == 1 || avion->avionType == 3){
+            printf("peut atterir");
+            return 0;
+        }
+        return 1;
+    }
+    //grandes pistes
+    if(piste->pisteType==3){
+        if(avion->avionType == 3 || avion->avionType == 2){
+            return 0;
+        }
+        return 1;
+    }
+    printf("\n------------problème de piste------------\n");
+    return 1;
+}
+
