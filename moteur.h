@@ -4,17 +4,18 @@
 
 
 typedef enum TypeAvion{
-    AVIONLIGNE,
-    AVIONAFFAIRE,
+    UNDEFINED,
     AVIONLEGER,
-    UNDEFINED
+    AVIONLIGNE,
+   AVIONAFFAIRE 
 }TypeAvion;
 
 typedef enum TypePiste {
+    PARKING,
     PETITE,
     MOYENNE,
     GRANDE,
-    PARKING
+    
 }TypePiste;
 
  
@@ -39,6 +40,7 @@ avion* initAvion();
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
 avion* empile(avion* liste,avion* elm);
 void afficheListe(avion* liste);
+int verifPiste(avion* avion,piste* piste);
 
 
 #endif
