@@ -36,6 +36,8 @@ typedef struct piste{
 
 avion* initAvion();
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
+avion* ajouteAvion(avion* liste,avion* elm);
+void afficheListe(avion* liste);
 
 
 #endif

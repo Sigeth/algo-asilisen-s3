@@ -1,5 +1,7 @@
 #include "moteur.h"
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 avion* initAvion(){
     avion* elmAvion=malloc(sizeof(avion));
@@ -23,4 +25,24 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
     return elmAvion;
 }
 
+avion* ajouteAvion(avion* liste,avion* elm){
+    avion* parcours=malloc(sizeof(avion));
+    parcours=liste;
+    while(parcours->suiv != NULL){
+        parcours=parcours->suiv;
+    }
+    parcours->suiv=elm;
+    elm->prec=parcours;
+    return liste;
+}
+
+void afficheListe(avion* liste){
+    printf("|       NOM       |   ETAT   |   AVIONTYPE  |\n");
+    while(liste != NULL){
+        printf("|%8s|",liste->identifiant);
+        printf("%8d|",liste->etat);
+        printf("%9d|\n",liste->avionType);
+        liste=liste->suiv;
+    }
+}
 
