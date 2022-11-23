@@ -25,7 +25,7 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
     return elmAvion;
 }
 
-avion* ajouteAvion(avion* liste,avion* elm){
+avion* empile(avion* liste,avion* elm){
     avion* parcours=malloc(sizeof(avion));
     parcours=liste;
     while(parcours->suiv != NULL){
