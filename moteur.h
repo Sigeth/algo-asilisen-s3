@@ -22,7 +22,7 @@ typedef enum TypePiste {
 typedef struct avion {
     char identifiant[20];
     TypeAvion avionType;
-    int etat;
+    int etat; //0 au sol ; 1 en vol
     int nbPassagers;
     struct avion* prec;
     struct avion* suiv;
@@ -33,7 +33,7 @@ typedef struct piste{
     int longueur;
     TypePiste pisteType;
     int nbAvionsMax;
-    avion* listeAvion;
+    avion* listeAvion; //décolage
 }piste;
 
 avion* initAvion();
@@ -41,6 +41,7 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
 avion* empile(avion* liste,avion* elm);
 void afficheListe(avion* liste);
 int verifPiste(avion* avion,piste* piste);
+int atterir(avion* avion,piste* piste);
 
 
 #endif

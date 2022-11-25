@@ -90,3 +90,20 @@ int verifPiste(avion* avion,piste* piste){
     printf("\n------------problème de piste------------\n");
     return 1;
 }   
+
+
+/*function atterir who serve to land an element "plane"
+ *@param avion* avion, the plane concerned
+ *@param piste* piste, the piste concenrned
+ *return 0 if it's true or 1 else;
+ */
+int atterir(avion* avion,piste* piste){
+    if(avion->etat==1){
+        if(verifPiste(avion,piste)==0){
+            avion->etat=0;
+            printf("atterissage réussi !\n");
+            return 0;
+        }
+    }
+    return 1;
+}
