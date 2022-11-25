@@ -107,3 +107,20 @@ int atterir(avion* avion,piste* piste){
     }
     return 1;
 }
+
+
+/*function decole who serve to take of an element "plane"
+ *@param avion* avion, the plane concerned (the first of the queue)
+ *@param piste* piste, the piste concenrned
+ *return 0 if it's true or 1 else;
+ */
+int decolle(avion* avion,piste* piste){
+    if(avion->etat==0){
+        if(verifPiste(avion,piste)==0){
+            avion->etat=1;
+            printf("décollage réussi !\n");
+            return 0;
+        }
+    }
+    return 1;
+}

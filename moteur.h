@@ -42,6 +42,6 @@ avion* empile(avion* liste,avion* elm);
 void afficheListe(avion* liste);
 int verifPiste(avion* avion,piste* piste);
 int atterir(avion* avion,piste* piste);
-
+int decolle(avion* avion,piste* piste);
 
 #endif
