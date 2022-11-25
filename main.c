@@ -3,6 +3,7 @@
 
 
 int main() {
+  //test moteur
     /*
      *Création de 5 avions pour le test ! 
      */
@@ -28,6 +29,6 @@ int main() {
      */
     afficheListe(elmAvion1);
     printf("\nelm crééééééé : %s\n",elmAvion1->identifiant);
-
+//fin test moteur
     return 0;
 }
