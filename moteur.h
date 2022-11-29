@@ -38,7 +38,7 @@ typedef struct piste{
 
 avion* initAvion();
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
-avion* empile(avion* liste,avion* elm);
+avion* enfile(avion* liste,avion* elm);
 void afficheListe(avion* liste);
 int verifPiste(avion* avion,piste* piste);
 int atterir(avion* avion,piste* piste);

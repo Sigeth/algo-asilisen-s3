@@ -18,7 +18,7 @@ avion* genBddRandom(avion* liste) {
         if (i == 0) {
             liste = newAvion;
         } else {
-            liste=empile(liste,newAvion);
+            liste=enfile(liste,newAvion);
         }
     }
     return liste;
