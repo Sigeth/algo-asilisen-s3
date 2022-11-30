@@ -38,6 +38,7 @@ typedef struct piste{
 }piste;
 
 piste* initPiste();
+void affichePiste(piste* piste);
 piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* liste);
 avion* initAvion();
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
