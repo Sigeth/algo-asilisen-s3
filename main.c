@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "moteur.h"
 #include "sauvegarde.h"
+#include "affichage.h"
 #include "menu.h"
 
 
@@ -18,7 +19,7 @@ int main() {
   
     PisteTEST=creerPiste(14,400,PETITE,5,liste->identifiant);
 
-    afficheListe(liste);
+    afficheListeAvion(liste);
     affichePiste(PisteTEST);
 
     menu(liste,PisteTEST);
