@@ -3,8 +3,8 @@
 #include "moteur.h"
 
 void tempo(int temp);
-
 void affiche_avion();
 void afficheListeAvion(avion* liste);
+void affichePiste(piste* piste);
 
 #endif
