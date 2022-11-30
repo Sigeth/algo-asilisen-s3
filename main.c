@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "moteur.h"
 #include "sauvegarde.h"
-#include <stdlib.h>
+#include "menu.h"
+
 
 int main() {
   //test moteur
@@ -17,6 +19,8 @@ int main() {
 
     afficheListe(liste);
     affichePiste(PisteTEST);
+
+    menu(liste,PisteTEST);
 //fin test moteur
     return 0;
 }
