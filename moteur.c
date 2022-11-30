@@ -100,6 +100,16 @@ void afficheListe(avion* liste){
     }
 }
 
+void affichePiste(piste* piste){
+    printf("|      NumPiste      |   Longueur   |   PISTETYPE  |\n");
+    while(piste != NULL){
+        printf("|%15d|",piste->numPiste);
+        printf("%8d|",piste->longueur);
+        printf("%9d|\n",piste->pisteType);
+        piste=piste->suiv;
+    }
+}
+
 /*function verifPiste , function to test if an element "avion" can take of or land
  *@param avion* avion, the plane concerned
  *@param piste* piste, the piste concenrned
