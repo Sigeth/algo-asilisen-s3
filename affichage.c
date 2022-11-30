@@ -1,4 +1,5 @@
 #include "affichage.h"
+#include "moteur.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -448,4 +449,49 @@ void tempo(int temp)
     {
         cpt+=1;
     }
+}
+
+
+
+/*function afficheListeAvion
+ * Print the list of planes
+ */
+
+void afficheListeAvion(avion* liste){
+    printf("                            ________________________________________________________________________________\n");
+    printf("                            |   NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
+    printf("                            --------------------------------------------------------------------------------\n");
+    while(liste != NULL){
+        printf("                            |  %s  |",liste->identifiant);
+        if(liste->etat == 0){
+            printf("     au sol    |");
+        }
+        else{
+            printf("     en vol    |");
+        }
+
+        switch (liste->avionType)
+        {
+        case UNDEFINED:
+            printf("       Indéfinie      |");
+            break;
+        case AVIONLEGER: 
+            printf("     Avion léger      |");
+            break;
+        
+        case AVIONAFFAIRE: 
+            printf("    Avion d'affaire   |");
+            break;
+        
+        case AVIONLIGNE: 
+            printf("     Avion de ligne   |");
+
+        default:
+
+            break;
+        }
+        printf("%15d%14s\n",liste->nbPassagers,"|");
+        liste=liste->suiv;
+    }
+    printf("                            --------------------------------------------------------------------------------\n");
 }
