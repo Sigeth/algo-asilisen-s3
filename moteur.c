@@ -41,7 +41,7 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
  * return an struct avion type elemnt with default value
  */
 piste* initPiste(){
-    piste* elmPiste=malloc(sizeof(avion));
+    piste* elmPiste=malloc(sizeof(piste));
     elmPiste->pisteType=UNDEFINED;
     elmPiste->longueur=-1;
     elmPiste->numPiste=-1;
@@ -98,6 +98,17 @@ avion* enfile(avion* liste,avion* elm){
     parcours->suiv=elm;
     elm->prec=parcours;
     return liste;
+}
+
+piste* ajoutePiste(avion* avionAjout, piste* PisteAjout){
+ for(int i=0;i<30;i++){
+        if(strcmp(PisteAjout->liste[i],"")!=1){
+            strcpy(PisteAjout->liste[i],avionAjout->identifiant);
+            return PisteAjout;
+        }
+    }
+    printf("erreur, piste pleine");
+     return NULL;
 }
 
 /*function afficheListe,debug function

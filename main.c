@@ -13,9 +13,9 @@ int main() {
     piste* PisteTEST= malloc(sizeof(piste));
     avion* liste = malloc(sizeof(avion));
     liste = loadAvions(liste,"avions");
-    
+     
     PisteTEST=initPiste();
-   
+  
     PisteTEST=creerPiste(14,400,PETITE,5,liste->identifiant);
 
     afficheListe(liste);
