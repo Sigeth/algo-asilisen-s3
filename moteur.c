@@ -37,6 +37,20 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
 }
 
 
+/*function initAvion
+ * return an struct avion type elemnt with default value
+ */
+piste* initPiste(){
+    piste* elmPiste=malloc(sizeof(avion));
+    elmPiste->pisteType=UNDEFINED;
+    elmPiste->longueur=-1;
+    elmPiste->listeAvion=initAvion();
+    elmPiste->numPiste=-1;
+    elmPiste->prec=NULL;
+    elmPiste->suiv=NULL;
+    return elmPiste;
+}
+
 /*function enfile, add an element "avion" in the queue 
  *@param avion* liste, the first element of the linked-list
  *@param avion* elm ,the element to add to the queue
@@ -97,10 +111,10 @@ int verifPiste(avion* avion,piste* piste){
  *@param piste* piste, the piste concenrned
  *return 0 if it's true or 1 else;
  */
-int atterir(avion* avion,piste* piste){
-    if(avion->etat==1){
-        if(verifPiste(avion,piste)==0){
-            avion->etat=0;
+int atterir(avion* avionA,piste* pisteA){
+    if(avionA->etat==1){
+        if(verifPiste(avionA,pisteA)==0){
+            avionA->etat=0;
             printf("atterissage réussi !\n");
             return 0;
         }
@@ -114,13 +128,20 @@ int atterir(avion* avion,piste* piste){
  *@param piste* piste, the piste concenrned
  *return 0 if it's true or 1 else;
  */
-int decolle(avion* avion,piste* piste){
-    if(avion->etat==0){
-        if(verifPiste(avion,piste)==0){
-            avion->etat=1;
+int decolle(avion* avionD,piste* pisteD){
+    if(pisteD->listeAvion == avionD) {
+        if(avionD->etat==0){
+        avion* TempAvion=malloc(sizeof(avion));
+        if(verifPiste(avionD,pisteD)==0){
+            avionD->etat=1;
+            pisteD->listeAvion=pisteD->listeAvion->suiv;
+            TempAvion=pisteD->listeAvion->prec;
+            pisteD->listeAvion->prec=NULL;
+            free(TempAvion);
             printf("décollage réussi !\n");
             return 0;
         }
+    }
     }
     return 1;
 }

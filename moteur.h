@@ -15,7 +15,6 @@ typedef enum TypePiste {
     PETITE,
     MOYENNE,
     GRANDE,
-    
 }TypePiste;
 
  
@@ -34,6 +33,8 @@ typedef struct piste{
     TypePiste pisteType;
     int nbAvionsMax;
     avion* listeAvion; //décolage
+    piste* prec;
+    piste* suiv;
 }piste;
 
 avion* initAvion();
