@@ -33,10 +33,12 @@ typedef struct piste{
     TypePiste pisteType;
     int nbAvionsMax;
     avion* listeAvion; //décolage
-    piste* prec;
-    piste* suiv;
+    struct piste* prec;
+    struct piste* suiv;
 }piste;
 
+piste* initPiste();
+piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* liste);
 avion* initAvion();
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
 avion* enfile(avion* liste,avion* elm);

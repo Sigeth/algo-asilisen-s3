@@ -51,6 +51,26 @@ piste* initPiste(){
     return elmPiste;
 }
 
+
+
+/*function creerAvion
+ *@param char* id, the id name of the "avion"
+ *@param TypeAvion avionType, the type of the "avion"
+ *@param int etat, the status of the "avion" (on the ground or in the air)
+ *@param int nbPassagers, the number of the passengers
+ *return an struct avion type elemnt with value passed in parameter;
+ */
+piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* liste){
+    piste* elmPiste=malloc(sizeof(piste));
+    elmPiste->listeAvion=liste;
+    elmPiste->longueur=longueur;
+    elmPiste->pisteType=pisteType;
+    elmPiste->prec=NULL;
+    elmPiste->suiv=NULL;
+    return elmPiste;
+}
+
+
 /*function enfile, add an element "avion" in the queue 
  *@param avion* liste, the first element of the linked-list
  *@param avion* elm ,the element to add to the queue
