@@ -44,10 +44,12 @@ piste* initPiste(){
     piste* elmPiste=malloc(sizeof(avion));
     elmPiste->pisteType=UNDEFINED;
     elmPiste->longueur=-1;
-    elmPiste->listeAvion=initAvion();
     elmPiste->numPiste=-1;
     elmPiste->prec=NULL;
     elmPiste->suiv=NULL;
+    for(int i=0;i<30;i++){
+        strcpy(elmPiste->liste[i],"XXX-XXX-XXX");
+    }
     return elmPiste;
 }
 
@@ -60,9 +62,17 @@ piste* initPiste(){
  *@param int nbPassagers, the number of the passengers
  *return an struct avion type elemnt with value passed in parameter;
  */
-piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* liste){
+piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,char * liste){
     piste* elmPiste=malloc(sizeof(piste));
-    elmPiste->listeAvion=liste;
+    for(int i=0;i<30;i++){
+        if(strcmp(elmPiste->liste[i],"XXX-XXX-XXX")!=1){
+            strcpy(elmPiste->liste[i],liste);
+            break;
+        }
+        if(i==29){
+            strcpy(elmPiste->liste[i],liste);
+        }
+    }
     elmPiste->numPiste=numPiste;
     elmPiste->longueur=longueur;
     elmPiste->pisteType=pisteType;
@@ -80,6 +90,8 @@ piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,a
 avion* enfile(avion* liste,avion* elm){
     avion* parcours=malloc(sizeof(avion));
     parcours=liste;
+    elm->suiv=NULL;
+    elm->prec=NULL;
     while(parcours->suiv != NULL){
         parcours=parcours->suiv;
     }
@@ -159,16 +171,26 @@ int atterir(avion* avionA,piste* pisteA){
  *@param piste* piste, the piste concenrned
  *return 0 if it's true or 1 else;
  */
+avion* rechercheParNom(avion* liste, char* nom){
+      while(liste != NULL){
+        if(strcmp(liste->identifiant,nom)){
+            return liste;
+        }
+        liste=liste->suiv;
+    }
+    return NULL;
+}
+
+
+
 int decolle(avion* avionD,piste* pisteD){
-    if(pisteD->listeAvion == avionD) {
+    if(rechercheParNom(avionD,pisteD->liste[0])== avionD) {
         if(avionD->etat==0){
-        avion* TempAvion=malloc(sizeof(avion));
         if(verifPiste(avionD,pisteD)==0){
             avionD->etat=1;
-            pisteD->listeAvion=pisteD->listeAvion->suiv;
-            TempAvion=pisteD->listeAvion->prec;
-            pisteD->listeAvion->prec=NULL;
-            free(TempAvion);
+            for(int i=1;i<30;i++){
+                strcpy(pisteD->liste[i-1],pisteD->liste[i]);
+            }
             printf("décollage réussi !\n");
             return 0;
         }
