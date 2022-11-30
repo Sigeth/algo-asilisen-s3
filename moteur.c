@@ -63,6 +63,7 @@ piste* initPiste(){
 piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* liste){
     piste* elmPiste=malloc(sizeof(piste));
     elmPiste->listeAvion=liste;
+    elmPiste->numPiste=numPiste;
     elmPiste->longueur=longueur;
     elmPiste->pisteType=pisteType;
     elmPiste->prec=NULL;
