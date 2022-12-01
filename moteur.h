@@ -23,8 +23,6 @@ typedef struct avion {
     TypeAvion avionType;
     int etat; //0 au sol ; 1 en vol
     int nbPassagers;
-    struct avion* prec;
-    struct avion* suiv;
 }avion;
 
 typedef struct piste{
@@ -32,21 +30,29 @@ typedef struct piste{
     int longueur;
     TypePiste pisteType;
     int nbAvionsMax;
-    char liste[30][20];//décolage
+    struct listeAvion* liste;
     struct piste* prec;
     struct piste* suiv;
 }piste;
 
+typedef struct listeAvion{
+    avion* Elm;
+    struct listeAvion* prec;
+    struct listeAvion* suiv;
+}listeAvion;
+
 piste* initPiste();
 void affichePiste(piste* piste);
-piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,char * liste);
+piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* elm);
 avion* initAvion();
 piste* ajoutePiste(avion* avionAjout, piste* PisteAjout);
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
-avion* enfile(avion* liste,avion* elm);
-void afficheListe(avion* liste);
+listeAvion* enfile(listeAvion* liste,avion* elm);
+void afficheListe(listeAvion* liste);
 int verifPiste(avion* avion,piste* piste);
 int atterir(avion* avion,piste* piste);
 int decolle(avion* avion,piste* piste);
+int cptElement(piste* pisteR);
+listeAvion* initListe();
 
 #endif
