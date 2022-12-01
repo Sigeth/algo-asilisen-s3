@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "moteur.h"
 #include "affichage.h"
+#include "couleursAffichage.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,12 +12,12 @@ void menu(avion* liste,piste* PisteTEST){
 	int quitter = 0;
 
 	while(menuPrincipal == 1){
-
-		printf("========== MENU PRINCIPAL ==========\n");
+		couleur("1;35");
+		printf("==================================================================================================== MENU PRINCIPAL =====================================================================================================\n");
 		printf("1 : Afficher avions\n");
 		printf("2 : Afficher pistes\n");
 		printf("3 : Quitter\n");
-		printf("====================================\n");
+		printf("=========================================================================================================================================================================================================================\n");
 		printf("\n");
 		printf("Que voulez-vous faire ? ");
 		scanf("%d", &choixMenu);
@@ -27,7 +28,8 @@ void menu(avion* liste,piste* PisteTEST){
 		{
 			case 1:
 				//Afficher avions
-				printf("----- Liste des avions : -----\n");
+				clrscr();
+				printf("------------------------------------------------------------------------------- Liste des avions -------------------------------------------------------------------------------\n");
 				printf("Quel avions voulez-vous afficher ? ");
 				scanf("%d", &choixAvion);
 				printf("\n");
@@ -36,36 +38,48 @@ void menu(avion* liste,piste* PisteTEST){
 				{
 					case 1:
 						while(quitter != 1){
+							clrscr();
 							printf("TEST 1\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal\n");
+							printf("\n");
+							//couleur("41");
+							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
+							//couleur("0");
+							printf("\n");
 							scanf("%d", &quitter);
-							system("clear");
+							clrscr();
 						}
 						quitter = 0;
-						system("clear");
+						clrscr();
 						break;
 
 					case 2:
 						while(quitter != 1){
+							clrscr();
 							printf("TEST 2\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal\n");
+							printf("\n");
+							//couleur("41");
+							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
+							//couleur("0");
+							printf("\n");
 							scanf("%d", &quitter);
-							system("clear");
+							clrscr();
 						}
 						quitter = 0;
-						system("clear");
+						clrscr();
 						break;
 
 					case 3:
-						system("clear");
+						clrscr();
 						break;
 				}
 				break;
 
 			case 2:
 				//Afficher pistes
-				printf("----- Liste des pistes : -----\n");
+				//couleur("35");
+				printf("------------------------------------------------------------------------------- Liste des pistes : -------------------------------------------------------------------------------\n");
 				printf("Quel avions voulez-vous afficher ? ");
+				//couleur("0");
 				scanf("%d", &choixPistes);
 				printf("\n");
 				printf("\n");
@@ -73,28 +87,38 @@ void menu(avion* liste,piste* PisteTEST){
 				{
 					case 1:
 						while(quitter != 1){
+							clrscr();
 							printf("TEST 1\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal\n");
+							printf("\n");
+							//couleur("41");
+							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
+							//couleur("0");
+							printf("\n");
 							scanf("%d", &quitter);
-							system("clear");
+							clrscr();
 						}
 						quitter = 0;
-						system("clear");
+						clrscr();
 						break;
 
 					case 2:
 						while(quitter != 1){
+							clrscr();
 							printf("TEST 2\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal\n");
+							printf("\n");
+							//couleur("41");
+							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
+							//couleur("0");
+							printf("\n");
 							scanf("%d", &quitter);
-							system("clear");
+							clrscr();
 						}
 						quitter = 0;
-						system("clear");
+						clrscr();
 						break;
 
 					case 3:
-						system("clear");
+						clrscr();
 						break;
 				}
 				break;
@@ -107,4 +131,5 @@ void menu(avion* liste,piste* PisteTEST){
 	}
 
 	printf("FIN\n");
+	couleur("0");
 }
