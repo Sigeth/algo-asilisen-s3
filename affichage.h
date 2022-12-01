@@ -4,7 +4,7 @@
 
 void tempo(int temp);
 void affiche_avion();
-void afficheListeAvion(avion* liste);
+void afficheListeAvion(listeAvion* liste);
 void affichePiste(piste* piste);
 
 #endif

@@ -457,20 +457,20 @@ void tempo(int temp)
  * Print the list of planes
  */
 
-void afficheListeAvion(avion* liste){
+void afficheListeAvion(listeAvion* liste){
     printf("                            ________________________________________________________________________________\n");
     printf("                            |   NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
     printf("                            --------------------------------------------------------------------------------\n");
     while(liste != NULL){
-        printf("                            |  %s  |",liste->identifiant);
-        if(liste->etat == 0){
+        printf("                            |  %s  |",liste->Elm->identifiant);
+        if(liste->Elm->etat == 0){
             printf("     au sol    |");
         }
         else{
             printf("     en vol    |");
         }
 
-        switch (liste->avionType)
+        switch (liste->Elm->avionType)
         {
         case UNDEFINED:
             printf("       Indéfinie      |");
@@ -490,7 +490,7 @@ void afficheListeAvion(avion* liste){
 
             break;
         }
-        printf("%15d%14s\n",liste->nbPassagers,"|");
+        printf("%15d%14s\n",liste->Elm->nbPassagers,"|");
         liste=liste->suiv;
     }
     printf("                            --------------------------------------------------------------------------------\n");
