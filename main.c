@@ -17,12 +17,14 @@ int main() {
      
     PisteTEST=initPiste();
   
-    PisteTEST=creerPiste(14,400,PETITE,5,liste->identifiant);
+    PisteTEST=creerPiste(14,400,PETITE,5,liste);
 
-    afficheListeAvion(liste);
+    //maafficheListeAvion(liste);
     affichePiste(PisteTEST);
+    int i = compteurElm(PisteTEST);
+    printf("\n OMG ON ARRETE TOUT ! IL Y A : %d",i);
 
-    menu(liste,PisteTEST);
+    //menu(liste,PisteTEST);
     //affichePiste(PisteTEST);
 //fin test moteur
     return 0;

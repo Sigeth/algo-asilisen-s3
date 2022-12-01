@@ -47,6 +47,14 @@ piste* initPiste(){
     return elmPiste;
 }
 
+int compteurElm(piste* PisteCpt){
+    int cpt=0; 
+    while(PisteCpt->liste != NULL) {
+        PisteCpt->liste=PisteCpt->liste->suiv;
+        cpt++;
+    }
+    return cpt;
+}
 
 
 
