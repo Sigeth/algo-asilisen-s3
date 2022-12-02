@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 /*function affiche_avion
- * print a fast annimation of a flying plane
+ * print a fast animation of a flying plane
  */
 
 void affiche_avion()
@@ -454,7 +454,7 @@ void tempo(int temp)
 
 
 /*function afficheListeAvion
- * Print the list of planes
+ * Print the list of the planes
  */
 
 void afficheListeAvion(listeAvion* liste){

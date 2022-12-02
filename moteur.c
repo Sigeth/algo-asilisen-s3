@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /*function initAvion
- * return an struct avion type elemnt with default value
+ * return an struct avion type element with default value
  */
 avion* initAvion(){
     avion* elmAvion=malloc(sizeof(avion));
@@ -34,7 +34,7 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
 
 
 /*function initAvion
- * return an struct avion type elemnt with default value
+ * return an struct avion type element with default value
  */
 piste* initPiste(){
     piste* elmPiste=malloc(sizeof(piste));
@@ -95,7 +95,7 @@ piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,a
 
 /*function enfile, add an element "avion" in the queue 
  *@param avion* liste, the first element of the linked-list
- *@param avion* elm ,the element to add to the queue
+ *@param avion* elm, the element to add to the queue
  *return the liste with the new element at the end
  */
 listeAvion* enfile(listeAvion* liste,avion* elm){
@@ -132,7 +132,7 @@ void affichePiste(piste* piste){
     }
 }
 
-/*function verifPiste , function to test if an element "avion" can take of or land
+/*function verifPiste, function to test if an element "avion" can take of or land
  *@param avion* avion, the plane concerned
  *@param piste* piste, the piste concenrned
  *return 0 if it's true or 1 else;

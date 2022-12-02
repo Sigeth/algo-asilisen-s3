@@ -5,6 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/*function menu, print the principal menu in the terminal
+ *@param avion* liste, the list of the planes
+ *@param piste* pisteTEST, the liste of the runways
+ */
 void menu(avion* liste,piste* PisteTEST){
 
 	int menuPrincipal = 1;
@@ -30,6 +35,8 @@ void menu(avion* liste,piste* PisteTEST){
 				//Afficher avions
 				clrscr();
 				printf("------------------------------------------------------------------------------- Liste des avions -------------------------------------------------------------------------------\n");
+				afficheListeAvion(liste);
+				printf("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 				printf("Quel avions voulez-vous afficher ? ");
 				scanf("%d", &choixAvion);
 				printf("\n");
@@ -41,9 +48,7 @@ void menu(avion* liste,piste* PisteTEST){
 							clrscr();
 							printf("TEST 1\n");
 							printf("\n");
-							//couleur("41");
 							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							//couleur("0");
 							printf("\n");
 							scanf("%d", &quitter);
 							clrscr();
@@ -57,9 +62,7 @@ void menu(avion* liste,piste* PisteTEST){
 							clrscr();
 							printf("TEST 2\n");
 							printf("\n");
-							//couleur("41");
 							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							//couleur("0");
 							printf("\n");
 							scanf("%d", &quitter);
 							clrscr();
@@ -76,10 +79,10 @@ void menu(avion* liste,piste* PisteTEST){
 
 			case 2:
 				//Afficher pistes
-				//couleur("35");
 				printf("------------------------------------------------------------------------------- Liste des pistes : -------------------------------------------------------------------------------\n");
-				printf("Quel avions voulez-vous afficher ? ");
-				//couleur("0");
+				affichePisteAvion(PisteTEST);
+				printf("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+				printf("Quelle piste voulez-vous afficher ? ");
 				scanf("%d", &choixPistes);
 				printf("\n");
 				printf("\n");
@@ -90,9 +93,7 @@ void menu(avion* liste,piste* PisteTEST){
 							clrscr();
 							printf("TEST 1\n");
 							printf("\n");
-							//couleur("41");
 							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							//couleur("0");
 							printf("\n");
 							scanf("%d", &quitter);
 							clrscr();
@@ -106,9 +107,7 @@ void menu(avion* liste,piste* PisteTEST){
 							clrscr();
 							printf("TEST 2\n");
 							printf("\n");
-							//couleur("41");
 							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							//couleur("0");
 							printf("\n");
 							scanf("%d", &quitter);
 							clrscr();

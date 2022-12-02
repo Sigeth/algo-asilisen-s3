@@ -3,13 +3,15 @@
 
 #include <stdio.h>
 
-//Permet de supprimer tout ce qui est écrit dans le terminal
+/*function clrscr(), clear the terminal
+ */
 #define clrscr() printf("\033[H\033[2J")
 
-/*
-Permet de changer le style du texte dans le terminal :
+/*function couleur, add style to the text printed in the terminal
+ *@param param, int that corresponds to the desired color
+ *more details below
 
-Changer couleur du texte :
+Change text color :
 -30 noir
 -31 rouge
 -32 vert
@@ -19,7 +21,7 @@ Changer couleur du texte :
 -36 cyan
 -37 blanc
 
-Changer la couleur de fond :
+Change background color :
 -40 noir
 -41 rouge
 -42 jaune
@@ -29,11 +31,11 @@ Changer la couleur de fond :
 -46 cyan
 -47 blanc
 
-Haute intensité des couleurs : 1
+High color intensity : 1
 
-Inverser la selection des couleurs (inverser couleur et fond) : 7
+Invert color selection (invert text color and background) : 7
 
-ATTENTION : à chaque utilisation de la fonction couleur(), il faut réinitialiser la couleur avec couleur("0");
+WARNING: each time the color() function is used, the color must be reset with color("0");
 */
 #define couleur(param) printf("\033[%sm", param)
 
