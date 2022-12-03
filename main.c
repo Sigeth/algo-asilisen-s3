@@ -16,12 +16,18 @@ int main() {
     listeAvion* liste = malloc(sizeof(listeAvion));
   
     liste = loadAvions(liste,"avions");
-     
+    avion* New=NULL;
+    New=initAvion(New);
+    New=creerAvion("omg",0,0,150);
+    
+    liste=enfile(liste,New);
+    
+    afficheListeAvion(liste);
+
    // PisteTEST=initPiste();
   
     //PisteTEST=creerPiste(14,400,PETITE,5,liste);
-
-    //maafficheListeAvion(liste);
+    
     //affichePiste(PisteTEST);
     //int i = compteurElm(PisteTEST);
     //printf("\n OMG ON ARRETE TOUT ! IL Y A : %d",i);
@@ -30,6 +36,6 @@ int main() {
     //menu(liste,PisteTEST);
     //affichePiste(PisteTEST);
 //fin test moteur
-    animationAvion();
+   // animationAvion();
     return 0;
 }
