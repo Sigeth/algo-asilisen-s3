@@ -458,11 +458,11 @@ void tempo(int temp)
  */
 
 void afficheListeAvion(listeAvion* liste){
-    printf("                            ________________________________________________________________________________\n");
-    printf("                            |   NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
-    printf("                            --------------------------------------------------------------------------------\n");
+    printf("                            _________________________________________________________________________________\n");
+    printf("                            |    NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
+    printf("                            ---------------------------------------------------------------------------------\n");
     while(liste != NULL){
-        printf("                            |  %s  |",liste->Elm->identifiant);
+        printf("                            |%6s     |",liste->Elm->identifiant);
         if(liste->Elm->etat == 0){
             printf("     au sol    |");
         }
@@ -494,6 +494,42 @@ void afficheListeAvion(listeAvion* liste){
         liste=liste->suiv;
     }
     printf("                            --------------------------------------------------------------------------------\n");
+}
+
+
+void afficheAvion(avion* avion){
+    printf("                            ________________________________________________________________________________\n");
+    printf("                            |   NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
+    printf("                            --------------------------------------------------------------------------------\n");
+    printf("                            |%5s%4s|",avion->identifiant," ");
+        if(avion->etat == 0){
+            printf("     au sol    |");
+        }
+        else{
+            printf("     en vol    |");
+        }
+
+        switch (avion->avionType)
+        {
+        case UNDEFINED:
+            printf("       Indéfinie      |");
+            break;
+        case AVIONLEGER: 
+            printf("     Avion léger      |");
+            break;
+        
+        case AVIONAFFAIRE: 
+            printf("    Avion d'affaire   |");
+            break;
+        
+        case AVIONLIGNE: 
+            printf("     Avion de ligne   |");
+
+        default:
+
+            break;
+        }
+        printf("%15d%14s\n",avion->nbPassagers,"|");
 }
 
 
