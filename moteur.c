@@ -25,7 +25,7 @@ avion* initAvion(){
  */
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
     avion* elmAvion=malloc(sizeof(avion));
-    strcpy(elmAvion->identifiant,id);
+    strncpy(elmAvion->identifiant,id,20);
     elmAvion->avionType=avionType;
     elmAvion->etat=etat;
     elmAvion->nbPassagers=nbPassagers;
