@@ -493,15 +493,15 @@ void afficheListeAvion(listeAvion* liste){
         printf("%15d%14s\n",liste->Elm->nbPassagers,"|");
         liste=liste->suiv;
     }
-    printf("                            --------------------------------------------------------------------------------\n");
+    printf("                            ---------------------------------------------------------------------------------\n");
 }
 
 
 void afficheAvion(avion* avion){
-    printf("                            ________________________________________________________________________________\n");
-    printf("                            |   NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
-    printf("                            --------------------------------------------------------------------------------\n");
-    printf("                            |%5s%4s|",avion->identifiant," ");
+    printf("                            _________________________________________________________________________________\n");
+    printf("                            |    NOM    |      ETAT     |       AVIONTYPE      |     nombre de passagers    |\n");
+    printf("                            ---------------------------------------------------------------------------------\n");
+    printf("                            |%6s     |",avion->identifiant);
         if(avion->etat == 0){
             printf("     au sol    |");
         }
@@ -530,6 +530,7 @@ void afficheAvion(avion* avion){
             break;
         }
         printf("%15d%14s\n",avion->nbPassagers,"|");
+        printf("                            ---------------------------------------------------------------------------------\n");
 }
 
 
