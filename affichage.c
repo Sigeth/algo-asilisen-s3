@@ -11,7 +11,7 @@
  * print a fast animation of a flying plane
  */
 
-void affiche_avion()
+void animationAvion()
 {
 char temp[800] = "";
 char espace [200]= " ";

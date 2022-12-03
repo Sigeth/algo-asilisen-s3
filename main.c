@@ -30,5 +30,6 @@ int main() {
     //menu(liste,PisteTEST);
     //affichePiste(PisteTEST);
 //fin test moteur
+    animationAvion();
     return 0;
 }
