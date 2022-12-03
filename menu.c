@@ -10,7 +10,7 @@
  *@param avion* liste, the list of the planes
  *@param piste* pisteTEST, the liste of the runways
  */
-void menu(avion* liste,piste* PisteTEST){
+void menu(listeAvion* liste,piste* PisteTEST){
 
 	int menuPrincipal = 1;
 	int choixMenu, choixAvion, choixPistes;
@@ -83,7 +83,7 @@ void menu(avion* liste,piste* PisteTEST){
 				//Afficher pistes
 				clrscr();
 				printf("---------------------------------------------------------- Liste des pistes ----------------------------------------------------------\n");
-				affichePisteAvion(PisteTEST);
+				affichePiste(PisteTEST);
 				printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
 				printf("Quelle piste voulez-vous afficher ? ");
 				scanf("%d", &choixPistes);

@@ -2,6 +2,6 @@
 #define ALGO_ASILISEN_S3_MENU_H
 #include "moteur.h"
 
-void menu(avion* liste, piste* PisteTEST);
+void menu(listeAvion* liste, piste* PisteTEST);
 
 #endif
