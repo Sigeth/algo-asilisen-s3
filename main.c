@@ -11,21 +11,23 @@ int main() {
     /*
      *Création de la base de données pour le test !
      */
-    piste* PisteTEST= malloc(sizeof(piste));
-    avion* liste = malloc(sizeof(avion));
+    printf("init fait :) ");
+    piste* PisteTEST=NULL;
+    listeAvion* liste = malloc(sizeof(listeAvion));
+  
     liste = loadAvions(liste,"avions");
      
-    PisteTEST=initPiste();
+   // PisteTEST=initPiste();
   
-    PisteTEST=creerPiste(14,400,PETITE,5,liste);
+    //PisteTEST=creerPiste(14,400,PETITE,5,liste);
 
     //maafficheListeAvion(liste);
     //affichePiste(PisteTEST);
-    int i = compteurElm(PisteTEST);
+    //int i = compteurElm(PisteTEST);
     //printf("\n OMG ON ARRETE TOUT ! IL Y A : %d",i);
 
     //affiche_avion();
-    menu(liste,PisteTEST);
+    //menu(liste,PisteTEST);
     //affichePiste(PisteTEST);
 //fin test moteur
     return 0;
