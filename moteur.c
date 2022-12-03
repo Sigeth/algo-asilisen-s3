@@ -179,6 +179,7 @@ avion* getAvionwithname(char* name,listeAvion* listeAvion) {
         if(strcmp(listeAvion->Elm->identifiant,name)==0){
             return listeAvion->Elm;
         }
+        listeAvion=listeAvion->suiv;
     }
     return NULL;
 }
