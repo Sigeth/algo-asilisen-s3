@@ -4,7 +4,7 @@
 #include <string.h>
 #include "sauvegarde.h"
 
-avion* genBddRandom(avion* liste) {
+listeAvion* genBddRandom(listeAvion* liste) {
     srand(time(NULL));
 
     for (int i=0;i<50;i++) {
@@ -14,9 +14,8 @@ avion* genBddRandom(avion* liste) {
         printf("Nom de l'avion : %s\n", id);
         avion* newAvion = creerAvion(id,rand()%3,rand()%1,rand()%500);
 
-
         if (i == 0) {
-            liste = newAvion;
+            liste->Elm = newAvion;
         } else {
             liste=enfile(liste,newAvion);
         }
@@ -24,10 +23,10 @@ avion* genBddRandom(avion* liste) {
     return liste;
 }
 
-int saveAvions(avion* liste, char* nomFichier) {
+int saveAvions(listeAvion* liste, char* nomFichier) {
     FILE* bdd = fopen(nomFichier, "wb");
 
-    avion* tmp = liste;
+    listeAvion* tmp = liste;
     int i = 0;
     while(tmp != NULL) {
         fwrite(tmp, sizeof(avion), 1, bdd);
@@ -47,13 +46,14 @@ int saveAvions(avion* liste, char* nomFichier) {
     }
 }
 
-avion* loadAvions(avion* liste, char* nomFichier) {
+listeAvion* loadAvions(listeAvion* liste, char* nomFichier) {
     FILE* bdd = fopen(nomFichier, "rb");
-    avion* prev = NULL;
+    listeAvion* prev = NULL;
     while(!feof(bdd)) {
-        avion* tmp = malloc(sizeof(avion));
-        fread(tmp, sizeof(avion), 1, bdd);
-        if (!strcmp(tmp->identifiant, "")) {
+        listeAvion* tmp = malloc(sizeof(listeAvion));
+        tmp=initListe(tmp);
+        fread(tmp->Elm, sizeof(avion), 1, bdd);
+        if (!strcmp(tmp->Elm->identifiant, "")) {
             break;
         }
         if (prev == NULL) {

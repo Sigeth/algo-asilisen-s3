@@ -3,8 +3,8 @@
 
 #include "moteur.h"
 
-avion* genBddRandom(avion* liste);
-int saveAvions(avion* liste, char* nomFichier);
-avion* loadAvions(avion* liste, char* nomFichier);
+listeAvion* genBddRandom(listeAvion* liste);
+int saveAvions(listeAvion* liste, char* nomFichier) ;
+listeAvion* loadAvions(listeAvion* liste, char* nomFichier);
 
 #endif
