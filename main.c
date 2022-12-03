@@ -11,11 +11,14 @@ int main() {
     /*
      *Création de la base de données pour le test !
      */
-    printf("init fait :) ");
+  
     piste* PisteTEST=NULL;
     listeAvion* liste = malloc(sizeof(listeAvion));
-  
-    liste = loadAvions(liste,"avions");
+   liste = loadAvions(liste,"avions");
+    PisteTEST=initPiste();
+    PisteTEST=creerPiste(14,400,PETITE,5,liste);
+
+   
     avion* New=NULL;
     New=initAvion(New);
     New=creerAvion("omg",0,0,150);
@@ -23,10 +26,10 @@ int main() {
     liste=enfile(liste,New);
     
     afficheListeAvion(liste);
-
-   // PisteTEST=initPiste();
-  
-    //PisteTEST=creerPiste(14,400,PETITE,5,liste);
+    liste->Elm->etat=1;
+    int  i= decolle(liste->Elm,PisteTEST);
+    afficheListeAvion(liste);
+   
     
     //affichePiste(PisteTEST);
     //int i = compteurElm(PisteTEST);

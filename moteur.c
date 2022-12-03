@@ -81,10 +81,11 @@ listeAvion* creerListe(avion* AvionC){
  *@param int nbPassagers, the number of the passengers
  *return an struct avion type elemnt with value passed in parameter;
  */
-piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,avion* elm){
+piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,listeAvion* elm){
     piste* elmPiste=malloc(sizeof(piste));
     elmPiste->liste=initListe(elm);
     elmPiste->numPiste=numPiste;
+    elmPiste->liste=elm;
     elmPiste->longueur=longueur;
     elmPiste->pisteType=pisteType;
     elmPiste->prec=NULL;
@@ -194,12 +195,12 @@ avion* getAvionwithname(char* name,listeAvion* listeAvion) {
 
 
 
-int decolle(avion* avionD,piste* pisteD){
-    if( pisteD->liste->Elm== avionD) {
-        if(avionD->etat==0){
-        if(verifPiste(avionD,pisteD)==0){
-            avionD->etat=1;
-            pisteD->liste->suiv=NULL;
+int decolle(listeAvion* avionD,piste* pisteD){
+    if( pisteD->liste->Elm== avionD->Elm) {
+        printf("je suis dans l'if");
+        if(avionD->Elm->etat==0){
+        if(verifPiste(avionD->Elm,pisteD)==0){
+            avionD->Elm->etat=1;
             pisteD->liste=pisteD->liste->suiv;
             printf("décollage réussi !\n");
             return 0;
