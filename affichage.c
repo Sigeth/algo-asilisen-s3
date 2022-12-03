@@ -11,10 +11,11 @@
  * print a fast animation of a flying plane
  */
 
-void animationAvion()
+void animationAvion(int etat)
 {
 char temp[800] = "";
 char espace [200]= " ";
+char retour_ligne [61]= " \n\n\n\n\n\n\n";
 char ligne1  [61] = "                       ___                                 \n";
 char ligne2  [61] = "                       \\\\ \\                             \n";
 char ligne3  [61] = "                        \\\\ `\\                           \n";
@@ -42,6 +43,10 @@ char ligne22 [61] = "                  //_/                                     
 for(int i = 0; i<60;i++)
 {
     system("clear"); 
+    if(etat == 1)
+    {
+        printf("%s",retour_ligne);
+    }
     for(int j = i; j>0;j--)
         {
             printf("%c",ligne1[60-j]);
@@ -160,9 +165,20 @@ for(int i = 0; i<60;i++)
 
 }
 
+int cpt=strlen(retour_ligne);
+
 for(int s = 0; s<73;s++)
 {
     system("clear");
+
+if(etat == 1)
+{
+for(int i = 0; i<cpt; i++)
+{
+    printf("%c",retour_ligne[i]);
+}
+}
+
 
 
 strcpy(temp,espace);
@@ -256,6 +272,13 @@ printf("%s",temp);
 strcpy(temp,espace);
 strcat(temp,ligne22);
 printf("%s",temp);
+
+if(s%10 == 0 && etat == 1)
+{
+    cpt-=1;
+}
+
+
 
 strcat(espace," ");
 tempo(10000000);
@@ -428,13 +451,18 @@ system("clear");
         printf("\n");
         
             strcat(espace," ");
-        
-        
+    
         tempo(10000000);
         system("clear");
-
+        
 
 }
+
+if(etat == 1)
+        {
+            animationAvion(0);
+        }
+        
 
 }
 
