@@ -67,7 +67,7 @@ void menu(listeAvion* liste, piste* PisteTEST){
 				//Afficher pistes
 				clrscr();
 				printf("---------------------------------------------------------- Liste des pistes ----------------------------------------------------------\n");
-				affichePiste(PisteTEST);
+				affichePisteAvion(PisteTEST);
 				printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
 				printf("Quelle piste voulez-vous afficher ? ");
 				scanf("%d", &choixPistes);
@@ -75,7 +75,7 @@ void menu(listeAvion* liste, piste* PisteTEST){
 				printf("\n");
 				while(quitter != 1){
 					piste* pisteAAfficher = getPisteWithName(choixPistes, PisteTEST);
-					affichePiste(pisteAAfficher);
+					affichePisteAvion(pisteAAfficher);
 					printf("\n");
 					printf("Appuyer sur 1 pour quitter et retourner au menu principal");
 					printf("\n");
