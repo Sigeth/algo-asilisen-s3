@@ -54,7 +54,8 @@ int atterir(avion* avion,piste* piste);
 int decolle(listeAvion* avionD,piste* pisteD);
 int cptElement(piste* pisteR);
 listeAvion* initListe();
-avion* getAvionwithname(char* name,listeAvion* listeAvion) ;
+avion* getAvionWithName(char* name,listeAvion* listeAvion);
+piste* getPisteWithName(int name, piste* listePiste);
 
 
 #endif

@@ -182,12 +182,22 @@ int atterir(avion* avionA,piste* pisteA){
     return 1;
 }
 
-avion* getAvionwithname(char* name,listeAvion* listeAvion) {
+avion* getAvionWithName(char* name,listeAvion* listeAvion) {
     while(listeAvion->Elm != NULL ){
         if(strcmp(listeAvion->Elm->identifiant,name)==0){
             return listeAvion->Elm;
         }
         listeAvion=listeAvion->suiv;
+    }
+    return NULL;
+}
+
+piste* getPisteWithName(int name,piste* listePiste) {
+    while(listePiste != NULL ){
+        if(listePiste->numPiste == name){
+            return listePiste;
+        }
+        listePiste=listePiste->suiv;
     }
     return NULL;
 }
