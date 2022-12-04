@@ -10,14 +10,17 @@
  *@param avion* liste, the list of the planes
  *@param piste* pisteTEST, the liste of the runways
  */
-void menu(listeAvion* liste,piste* PisteTEST){
+void menu(listeAvion* liste, piste* PisteTEST){
 
 	int menuPrincipal = 1;
-	int choixMenu, choixAvion, choixPistes;
+	int choixMenu;
+	char* choixAvion = malloc(sizeof(char)*20);
+	int choixPistes;
 	int quitter = 0;
 
 	while(menuPrincipal == 1){
 
+		quitter = 0;
 		//Marche bien pour $COLUMNS = 135
 		couleur("1;35");
 		printf("=========================================================== MENU PRINCIPAL ===========================================================\n");
@@ -40,43 +43,24 @@ void menu(listeAvion* liste,piste* PisteTEST){
 				afficheListeAvion(liste);
 				printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
 				printf("Quel avions voulez-vous afficher ? ");
-				scanf("%d", &choixAvion);
+				scanf("%s", choixAvion);
 				printf("\n");
 				printf("\n");
-				switch(choixAvion)
-				{
-					case 1:
-						while(quitter != 1){
-							clrscr();
-							printf("TEST 1\n");
-							printf("\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							printf("\n");
-							scanf("%d", &quitter);
-							clrscr();
-						}
-						quitter = 0;
-						clrscr();
-						break;
-
-					case 2:
-						while(quitter != 1){
-							clrscr();
-							printf("TEST 2\n");
-							printf("\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							printf("\n");
-							scanf("%d", &quitter);
-							clrscr();
-						}
-						quitter = 0;
-						clrscr();
-						break;
-
-					case 3:
-						clrscr();
-						break;
+				while(quitter != 1){
+					avion* avionAAfficher = getAvionWithName(choixAvion, liste);
+					if(avionAAfficher == NULL){
+						printf("Cet avion n'existe pas.\n");
+					}
+					else{
+						afficheAvion(avionAAfficher);
+					}
+					printf("\n");
+					printf("Appuyer sur 1 pour quitter et retourner au menu principal");
+					printf("\n");
+					scanf("%d", &quitter);
+					clrscr();
 				}
+				clrscr();
 				break;
 
 			case 2:
@@ -89,40 +73,16 @@ void menu(listeAvion* liste,piste* PisteTEST){
 				scanf("%d", &choixPistes);
 				printf("\n");
 				printf("\n");
-				switch(choixPistes)
-				{
-					case 1:
-						while(quitter != 1){
-							clrscr();
-							printf("TEST 1\n");
-							printf("\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							printf("\n");
-							scanf("%d", &quitter);
-							clrscr();
-						}
-						quitter = 0;
-						clrscr();
-						break;
-
-					case 2:
-						while(quitter != 1){
-							clrscr();
-							printf("TEST 2\n");
-							printf("\n");
-							printf("Appuyer sur 1 pour quitter et retourner au menu principal");
-							printf("\n");
-							scanf("%d", &quitter);
-							clrscr();
-						}
-						quitter = 0;
-						clrscr();
-						break;
-
-					case 3:
-						clrscr();
-						break;
+				while(quitter != 1){
+					piste* pisteAAfficher = getPisteWithName(choixPistes, PisteTEST);
+					affichePiste(pisteAAfficher);
+					printf("\n");
+					printf("Appuyer sur 1 pour quitter et retourner au menu principal");
+					printf("\n");
+					scanf("%d", &quitter);
+					clrscr();
 				}
+				clrscr();
 				break;
 				
 			case 3:
