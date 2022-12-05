@@ -58,3 +58,4 @@ CMakeLists.txt
 
 # Generated lib
 main
+generateBdd
