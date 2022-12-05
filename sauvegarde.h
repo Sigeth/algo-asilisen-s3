@@ -6,5 +6,8 @@
 listeAvion* genBddRandom(listeAvion* liste);
 int saveAvions(listeAvion* liste, char* nomFichier) ;
 listeAvion* loadAvions(listeAvion* liste, char* nomFichier);
+piste* genPistes(piste* listePistes, listeAvion* listeAvions);
+int savePistes(piste* liste, char* nomFichier);
+piste* loadPistes(piste* liste, char* nomFichier);
 
 #endif
