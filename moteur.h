@@ -42,13 +42,11 @@ typedef struct listeAvion{
 }listeAvion;
 
 piste* initPiste();
-void affichePiste(piste* piste);
 piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,listeAvion* elm);
 avion* initAvion();
 piste* ajoutePiste(avion* avionAjout, piste* PisteAjout);
 avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
 listeAvion* enfile(listeAvion* liste,avion* elm);
-void afficheListe(listeAvion* liste);
 int verifPiste(avion* avion,piste* piste);
 int atterir(avion* avion,piste* piste);
 int decolle(listeAvion* avionD,piste* pisteD);

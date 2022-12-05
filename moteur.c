@@ -126,30 +126,6 @@ listeAvion* enfile(listeAvion* liste,avion* elm){
       return liste ;
 }
 
-
-/*function afficheListe,debug function
- *@param avion* liste, the first element of the linked-list
- */
-void afficheListe(listeAvion* liste){
-    printf("|       NOM       |   ETAT   |   AVIONTYPE  |\n");
-    while(liste != NULL){
-        printf("|%8s|",liste->Elm->identifiant);
-        printf("%8d|",liste->Elm->etat);
-        printf("%9d|\n",liste->Elm->avionType);
-        liste=liste->suiv;
-    }
-}
-
-void affichePiste(piste* piste){
-    printf("|      NumPiste      |   Longueur   |   PISTETYPE  |\n");
-    while(piste != NULL){
-        printf("|%15d|",piste->numPiste);
-        printf("%8d|",piste->longueur);
-        printf("%9d|\n",piste->pisteType);
-        piste=piste->suiv;
-    }
-}
-
 /*function verifPiste, function to test if an element "avion" can take of or land
  *@param avion* avion, the plane concerned
  *@param piste* piste, the piste concenrned
