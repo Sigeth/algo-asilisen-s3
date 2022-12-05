@@ -15,9 +15,7 @@ int main() {
     piste* pistes=NULL;
     listeAvion* liste = malloc(sizeof(listeAvion));
     liste = loadAvions(liste,"saves/globalAvions.save");
-
-    pistes = genPistes(pistes, liste);
-
+    pistes = loadPistes(pistes, "saves/pistes.save");
 
     /*avion* New=NULL;
     New=initAvion(New);
