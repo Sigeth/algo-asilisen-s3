@@ -119,6 +119,37 @@ void menu(listeAvion* liste, piste* pistes){
 				while(quitter != 1){
 					piste* pisteAAfficher = getPisteWithName(choixPistes, pistes);
 					affichePiste(pisteAAfficher);
+					printf("Liste des avions sur cette piste : \n");
+					afficheListeAvion(pisteAAfficher->liste);
+					printf("\n");
+					//Propose de décoller si avion sur une piste, et de déplacer si l'avion est dans le parking
+					printf("Voulez vous faire décoller/déplacer un avion ? (oui ou non)\n");
+					scanf("%s", decollage);
+					if(strcmp(decollage, "oui")==0){
+						printf("Choisir un avion : ");
+						scanf("%s", choixAvion);
+						printf("\n");
+						avion* avionADeplacer = getAvionWithName(choixAvion, liste);
+						if(avionADeplacer == NULL){
+							printf("Cet avion n'existe pas.\n");
+						}
+						else{
+							if(avionADeplacer->etat == 0){
+								int testDecollage = decolle(avionADeplacer, pistes);
+								if(testDecollage == 1){
+									printf("L'avion n'a pas pu décoller car il y a d'autres avions avant lui dans la liste d'attente\n");
+								}
+								else{
+									clrscr();
+									animationAvion(1);
+								}
+							}
+							else{
+								printf("Cet avion est en vol.\n");
+							}
+						}
+						afficheAvion(avionADeplacer);
+					}
 					printf("\n");
 					printf("Appuyer sur 1 pour quitter et retourner au menu principal");
 					printf("\n");
