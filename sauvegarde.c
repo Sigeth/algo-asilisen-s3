@@ -113,7 +113,7 @@ piste* genPistes(piste* listePistes, listeAvion* listeAvions) {
                         }
                         break;
                     case PETITE:
-                        if (cptElement(petite) >= petite->nbAvionsMax) {
+                        if (cptElement(petite) >= petite->nbAvionsMax || listeAvions->Elm->avionType == AVIONLIGNE) {
                             available = false;
                         } else {
                             petite->liste = enfile(petite->liste, listeAvions->Elm);
@@ -121,7 +121,7 @@ piste* genPistes(piste* listePistes, listeAvion* listeAvions) {
                         }
                         break;
                     case MOYENNE:
-                        if (cptElement(moy) >= moy->nbAvionsMax) {
+                        if (cptElement(moy) >= moy->nbAvionsMax || listeAvions->Elm->avionType == AVIONLIGNE) {
                             available = false;
                         } else {
                             moy->liste = enfile(moy->liste, listeAvions->Elm);
@@ -129,7 +129,7 @@ piste* genPistes(piste* listePistes, listeAvion* listeAvions) {
                         }
                         break;
                     case GRANDE:
-                        if (cptElement(grande) >= grande->nbAvionsMax) {
+                        if (cptElement(grande) >= grande->nbAvionsMax || listeAvions->Elm->avionType == AVIONLEGER) {
                             available = false;
                         } else {
                             grande->liste = enfile(grande->liste, listeAvions->Elm);
