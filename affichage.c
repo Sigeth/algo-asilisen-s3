@@ -15,7 +15,8 @@ void animationAvion(int etat)
 {
 char temp[800] = "";
 char espace [200]= " ";
-char retour_ligne [61]= " \n\n\n\n\n\n\n";
+char espace2 [50] = "                                    ";
+char retour_ligne [20]= " \n\n\n\n\n\n\n";
 char ligne1  [61] = "                       ___                                 \n";
 char ligne2  [61] = "                       \\\\ \\                             \n";
 char ligne3  [61] = "                        \\\\ `\\                           \n";
@@ -38,6 +39,19 @@ char ligne19 [61] = "                     //  ,/                                
 char ligne20 [61] = "                    //  /                                  \n";
 char ligne21 [61] = "                   // ,/                                   \n";
 char ligne22 [61] = "                  //_/                                     \n";
+
+char nuage1[100] = "            _                                   ";
+char nuage2[100] = "          (`  ).                   _            ";
+char nuage3[100] = "         (     ).              .:(`  )`.        ";
+char nuage4[100] = "    .=(`(      .   )     .--  `.  (    ) )      ";
+char nuage5[100] = "   ((    (..__.:'-'   .+(   )   ` _`  ) )       ";
+char nuage6[100] = "   `(       ) )       (   .  )     (   )  ._    ";
+char nuage7[100] = "     ` __.:'   )     (   (   ))     `-'.-(`  )  ";
+char nuage8[100] = "  ( )       --'       `- __.'         :(      ))";
+char nuage9[100] = "(_.'          .')                    `(    )  ))";
+char nuage10[100] ="              (_  )                     ` __.:' ";
+
+
 
 
 for(int i = 0; i<60;i++)
@@ -159,6 +173,49 @@ for(int i = 0; i<60;i++)
             printf("%c",ligne22[60-j]);
         }
 
+        if(etat == 0)
+        {
+            printf("%s",nuage1);
+printf("%s",espace2);
+printf("%s",nuage1);
+printf("\n");
+printf("%s",nuage2);
+printf("%s",espace2);
+printf("%s",nuage2);
+printf("\n");
+printf("%s",nuage3);
+printf("%s",espace2);
+printf("%s",nuage3);
+printf("\n");
+printf("%s",nuage4);
+printf("%s",espace2);
+printf("%s",nuage4);
+printf("\n");
+printf("%s",nuage5);
+printf("%s",espace2);
+printf("%s",nuage5);
+printf("\n");
+printf("%s",nuage6);
+printf("%s",espace2);
+printf("%s",nuage6);
+printf("\n");
+printf("%s",nuage7);
+printf("%s",espace2);
+printf("%s",nuage7);
+printf("\n");
+printf("%s",nuage8);
+printf("%s",espace2);
+printf("%s",nuage8);
+printf("\n");
+printf("%s",nuage9);
+printf("%s",espace2);
+printf("%s",nuage9);
+printf("\n");
+printf("%s",nuage10);
+printf("%s",espace2);
+printf("%s",nuage10);
+printf("\n");
+        }
 
         tempo(10000000);
         
@@ -166,6 +223,7 @@ for(int i = 0; i<60;i++)
 }
 
 int cpt=strlen(retour_ligne);
+int cpt2=0;
 
 for(int s = 0; s<73;s++)
 {
@@ -179,6 +237,13 @@ for(int i = 0; i<cpt; i++)
 }
 }
 
+if(etat == 2)
+{
+    for(int i = 0; i < cpt2; i++)
+    {
+        printf("%c",retour_ligne[i]);
+    }
+}
 
 
 strcpy(temp,espace);
@@ -273,9 +338,62 @@ strcpy(temp,espace);
 strcat(temp,ligne22);
 printf("%s",temp);
 
+////////////////////nuage/////////////////////
+
+if(etat == 0)
+{
+
+
+printf("%s",nuage1);
+printf("%s",espace2);
+printf("%s",nuage1);
+printf("\n");
+printf("%s",nuage2);
+printf("%s",espace2);
+printf("%s",nuage2);
+printf("\n");
+printf("%s",nuage3);
+printf("%s",espace2);
+printf("%s",nuage3);
+printf("\n");
+printf("%s",nuage4);
+printf("%s",espace2);
+printf("%s",nuage4);
+printf("\n");
+printf("%s",nuage5);
+printf("%s",espace2);
+printf("%s",nuage5);
+printf("\n");
+printf("%s",nuage6);
+printf("%s",espace2);
+printf("%s",nuage6);
+printf("\n");
+printf("%s",nuage7);
+printf("%s",espace2);
+printf("%s",nuage7);
+printf("\n");
+printf("%s",nuage8);
+printf("%s",espace2);
+printf("%s",nuage8);
+printf("\n");
+printf("%s",nuage9);
+printf("%s",espace2);
+printf("%s",nuage9);
+printf("\n");
+printf("%s",nuage10);
+printf("%s",espace2);
+printf("%s",nuage10);
+printf("\n");
+}
+
 if(s%10 == 0 && etat == 1)
 {
     cpt-=1;
+}
+
+if(s%10 == 0 && etat == 2)
+{
+    cpt2+=1;
 }
 
 
@@ -283,6 +401,110 @@ if(s%10 == 0 && etat == 1)
 strcat(espace," ");
 tempo(10000000);
 }
+
+
+if(etat == 2)
+{
+system("clear");
+printf("%s",retour_ligne);
+strcpy(temp,espace);
+strcat(temp,ligne1);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne2);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne3);
+printf("%s",temp);
+
+
+
+strcpy(temp,espace);
+strcat(temp,ligne4);
+printf("%s",temp);
+
+
+strcpy(temp,espace);
+strcat(temp,ligne5);
+printf("%s",temp);
+
+
+strcpy(temp,espace);
+strcat(temp,ligne6);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne7);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne8);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne9);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne10);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne11);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne12);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne13);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne14);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne15);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne16);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne17);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne18);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne19);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne20);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne21);
+printf("%s",temp);
+
+strcpy(temp,espace);
+strcat(temp,ligne22);
+printf("%s",temp);
+
+tempo(1000000000);
+}
+
+if(etat == 0 || etat == 1)
+{
+
 
 strcpy( ligne1   , "                       ___                                 ");
 strcpy( ligne2   , "                       \\\\ \\                             ");
@@ -451,19 +673,57 @@ system("clear");
         printf("\n");
         
             strcat(espace," ");
+
+        if(etat == 0)
+        {
+            printf("%s",nuage1);
+printf("%s",espace2);
+printf("%s",nuage1);
+printf("\n");
+printf("%s",nuage2);
+printf("%s",espace2);
+printf("%s",nuage2);
+printf("\n");
+printf("%s",nuage3);
+printf("%s",espace2);
+printf("%s",nuage3);
+printf("\n");
+printf("%s",nuage4);
+printf("%s",espace2);
+printf("%s",nuage4);
+printf("\n");
+printf("%s",nuage5);
+printf("%s",espace2);
+printf("%s",nuage5);
+printf("\n");
+printf("%s",nuage6);
+printf("%s",espace2);
+printf("%s",nuage6);
+printf("\n");
+printf("%s",nuage7);
+printf("%s",espace2);
+printf("%s",nuage7);
+printf("\n");
+printf("%s",nuage8);
+printf("%s",espace2);
+printf("%s",nuage8);
+printf("\n");
+printf("%s",nuage9);
+printf("%s",espace2);
+printf("%s",nuage9);
+printf("\n");
+printf("%s",nuage10);
+printf("%s",espace2);
+printf("%s",nuage10);
+printf("\n");
+        }
     
         tempo(10000000);
         system("clear");
         
 
 }
-
-if(etat == 1)
-        {
-            animationAvion(0);
-        }
-        
-
+}
 }
 
 /*function tempo
