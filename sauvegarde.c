@@ -25,6 +25,9 @@ listeAvion* genBddRandom(listeAvion* liste) {
             case AVIONLIGNE:
                 newAvion = creerAvion(id,avionType,rand()%2, 250 + rand()%850);
                 break;
+            default:
+                printf("ambiance étrange, l'avion est de type undefined quoi donc bon bizarre quoi......\n");
+                break;
         }
 
         if (i == 0) {
@@ -97,34 +100,47 @@ piste* genPistes(piste* listePistes, listeAvion* listeAvions) {
 
     while(listeAvions != NULL) {
         if (listeAvions->Elm->etat == 0) {
-            TypePiste pisteAvion = rand() % 4;
-            bool available = true;
-            switch (pisteAvion) {
-                case PARKING:
-                    parking->liste = enfile(parking->liste, listeAvions->Elm);
-                    break;
-                case PETITE:
-                    petite->liste = enfile(petite->liste, listeAvions->Elm);
-                    break;
-                case MOYENNE:
-                    moy->liste = enfile(moy->liste, listeAvions->Elm);
-                    break;
-                case GRANDE:
-                    grande->liste = enfile(grande->liste, listeAvions->Elm);
-                    break;
+            bool available = false;
+            while (!available) {
+                TypePiste pisteAvion = rand() % 4;
+                switch (pisteAvion) {
+                    case PARKING:
+                        if (cptElement(parking) >= parking->nbAvionsMax) {
+                            available = false;
+                        } else {
+                            parking->liste = enfile(parking->liste, listeAvions->Elm);
+                            available = true;
+                        }
+                        break;
+                    case PETITE:
+                        if (cptElement(petite) >= petite->nbAvionsMax) {
+                            available = false;
+                        } else {
+                            petite->liste = enfile(petite->liste, listeAvions->Elm);
+                            available = true;
+                        }
+                        break;
+                    case MOYENNE:
+                        if (cptElement(moy) >= moy->nbAvionsMax) {
+                            available = false;
+                        } else {
+                            moy->liste = enfile(moy->liste, listeAvions->Elm);
+                            available = true;
+                        }
+                        break;
+                    case GRANDE:
+                        if (cptElement(grande) >= grande->nbAvionsMax) {
+                            available = false;
+                        } else {
+                            grande->liste = enfile(grande->liste, listeAvions->Elm);
+                            available = true;
+                        }
+                        break;
+                }
             }
         }
         listeAvions=listeAvions->suiv;
     }
-
-    printf("Liste avions parking :\n");
-    afficheListe(parking->liste);
-    printf("\n\nListe avions petite :\n");
-    afficheListe(petite->liste);
-    printf("\n\nListe avions moyenne :\n");
-    afficheListe(moy->liste);
-    printf("\n\nListe avions grande :\n");
-    afficheListe(grande->liste);
 
     return parking;
 }
