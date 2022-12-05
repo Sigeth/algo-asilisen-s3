@@ -102,18 +102,23 @@ piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,l
 listeAvion* enfile(listeAvion* liste,avion* elm){
     listeAvion* tmp=malloc(sizeof(listeAvion));
     tmp=liste;
-  if(tmp->suiv != NULL){
-        while(tmp->suiv != NULL){
-            tmp=tmp->suiv;
+    if (tmp == NULL) {
+        tmp=creerListe(elm);
+        return tmp;
+    } else {
+        if(tmp->suiv != NULL){
+            while(tmp->suiv != NULL){
+                tmp=tmp->suiv;
+            }
+            tmp->suiv=creerListe(elm);
+            tmp->suiv->prec=tmp;
         }
-        tmp->suiv=creerListe(elm);
-        tmp->suiv->prec=tmp;
+        else {
+            tmp->suiv=creerListe(elm);
+            tmp->suiv->prec=tmp;
+        }
     }
-    else {
-        tmp->suiv=creerListe(elm);
-        tmp->suiv->prec=tmp;
-    }
-      return tmp ;
+      return liste ;
 }
 
 
