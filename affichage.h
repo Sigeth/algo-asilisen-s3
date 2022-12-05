@@ -5,6 +5,7 @@
 void tempo(int temp);
 void animationAvion(int etat);
 void afficheListeAvion(listeAvion* liste);
+void affichePisteAvion(piste* piste);
 void affichePiste(piste* piste);
 void afficheAvion(avion* avion);
 #endif

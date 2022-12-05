@@ -599,6 +599,34 @@ void affichePisteAvion(piste* piste){
     
 }
 
+void affichePiste(piste* piste){
+    printf("                                    ________________________________________________________________\n");
+    printf("                                    |      NumPiste      |   Longueur   |   PISTETYPE  |  NBAvion  |\n");
+    printf("                                    ----------------------------------------------------------------\n");
+    printf("                                    |%11d%10s",piste->numPiste,"|");
+    printf("%9d%6s",piste->longueur,"|");
+    switch (piste->pisteType)
+    {
+    case PARKING:
+        printf("   parking    |\n");
+        break;
+    case PETITE:
+        printf("    petite    |\n");
+        break;
+        
+    case MOYENNE:
+        printf("   moyenne    |\n");
+        break;
+    case GRANDE:
+        printf("   grande     |\n");
+        break;
+    default:
+        break;
+    }
+    printf("                                    ----------------------------------------------------------------\n");
+    
+}
+
 
 
 
