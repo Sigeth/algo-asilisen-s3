@@ -153,6 +153,11 @@ int savePistes(piste* liste, char* nomFichier) {
     while(tmp != NULL) {
         fwrite(tmp, sizeof(piste), 1, bdd);
 
+        char* saveName = malloc(sizeof(char) * 20);
+        snprintf(saveName, 20, "saves/avions%d.save", tmp->numPiste);
+        saveAvions(tmp->liste, saveName);
+        free(saveName);
+
         tmp = tmp->suiv;
         i++;
     }
@@ -174,6 +179,16 @@ piste* loadPistes(piste* liste, char* nomFichier) {
     while (!feof(bdd)) {
         piste *tmp = malloc(sizeof(piste));
         fread(tmp, sizeof(piste), 1, bdd);
+
+        if (tmp->nbAvionsMax == 0) {
+            break;
+        }
+
+        char* saveName = malloc(sizeof(char) * 20);
+        snprintf(saveName, 20, "saves/avions%d.save", tmp->numPiste);
+        tmp->liste = loadAvions(tmp->liste, saveName);
+        free(saveName);
+
         if (prev == NULL) {
             liste = tmp;
         } else {
