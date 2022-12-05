@@ -135,7 +135,7 @@ void menu(listeAvion* liste, piste* pistes){
 						}
 						else{
 							if(avionADeplacer->etat == 0){
-								int testDecollage = decolle(avionADeplacer, pistes);
+								int testDecollage = decolle(avionADeplacer,pisteAAfficher);
 								if(testDecollage == 1){
 									printf("L'avion n'a pas pu décoller car il y a d'autres avions avant lui dans la liste d'attente\n");
 								}

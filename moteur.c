@@ -195,15 +195,15 @@ int atterir(avion* avionA,piste* pisteA){
 
 
 int decolle(avion* avionD,piste* pisteD){
-    if( pisteD->liste->Elm== avionD) {
-        if(avionD->etat==0){
-        if(verifPiste(avionD,pisteD)==0){
+    if( strcmp(pisteD->liste->Elm->identifiant,avionD->identifiant)==0) {
+    if(avionD->etat==0){
+       if(verifPiste(avionD,pisteD)==0){
             avionD->etat=1;
             pisteD->liste=pisteD->liste->suiv;
             return 0;
-        }
+     //   }
     }
-    }
+    }}
     return 1;
 }
 /*
