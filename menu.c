@@ -60,12 +60,18 @@ void menu(listeAvion* liste, piste* pistes){
 						afficheAvion(avionAAfficher);
 						//Si avion au sol
 						if(avionAAfficher->etat == 0){
-							printf("Voulez vous faire décoller l'avion ? (oui ou non)\n");
+							//Propose de décoller si avion sur une piste, et de déplacer si l'avion est dans le parking
+							printf("Voulez vous faire décoller/déplacer l'avion ? (oui ou non)\n");
 							scanf("%s", decollage);
 							if(strcmp(decollage, "oui")==0){
-								decolle(pistes->liste, pistes);
-								clrscr();
-								animationAvion(1);
+								int testDecollage = decolle(avionAAfficher, pistes);
+								if(testDecollage == 1){
+									printf("L'avion n'a pas pu décoller car il y a d'autres avions avant lui dans la liste d'attente\n");
+								}
+								else{
+									clrscr();
+									animationAvion(1);
+								}
 							}
 						}
 						//Si avion en vol
@@ -78,10 +84,15 @@ void menu(listeAvion* liste, piste* pistes){
 								printf("Sur quelle piste voulez-vous faire atterir l'avion ? (donner son numéro) ");
 								scanf("%d", &pisteAtterissage);
 								piste* pisteA = getPisteWithName(pisteAtterissage, pistes);
-								atterir(avionAAfficher, pisteA);
-								clrscr();
-								printf("ATTERISSAGE\n");
-								//animationAvion(2);
+								int testAtterissage = atterir(avionAAfficher, pisteA);
+								if(testAtterissage == 1){
+									printf("L'avion n'a pas pu atterir car la piste est pleine ou sa taille n'est pas adéquat\n");
+								}
+								else{
+									clrscr();
+									printf("ATTERISSAGE\n");
+									//animationAvion(2);
+								}
 							}
 						}
 					}
