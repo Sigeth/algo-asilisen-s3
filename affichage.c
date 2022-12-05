@@ -577,21 +577,22 @@ void affichePisteAvion(piste* piste){
         switch (piste->pisteType)
         {
         case PARKING:
-            printf("   parking    |\n");
+            printf("   parking    |");
             break;
         case PETITE:
-            printf("    petite    |\n");
+            printf("    petite    |");
             break;
         
         case MOYENNE:
-            printf("   moyenne    |\n");
+            printf("   moyenne    |");
             break;
         case GRANDE:
-            printf("   grande     |\n");
+            printf("   grande     |");
             break;
         default:
             break;
         }
+        printf("%6d%5s|\n",cptElement(piste)," ");
 
         piste=piste->suiv;
     }
@@ -608,21 +609,22 @@ void affichePiste(piste* piste){
     switch (piste->pisteType)
     {
     case PARKING:
-        printf("   parking    |\n");
+        printf("   parking    |");
         break;
     case PETITE:
-        printf("    petite    |\n");
+        printf("    petite    |");
         break;
         
     case MOYENNE:
-        printf("   moyenne    |\n");
+        printf("   moyenne    |");
         break;
     case GRANDE:
-        printf("   grande     |\n");
+        printf("   grande     |");
         break;
     default:
         break;
     }
+    printf("%6d%5s|\n",cptElement(piste)," ");
     printf("                                    ----------------------------------------------------------------\n");
     
 }
