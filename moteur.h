@@ -49,7 +49,7 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers);
 listeAvion* enfile(listeAvion* liste,avion* elm);
 int verifPiste(avion* avion,piste* piste);
 int atterir(avion* avion,piste* piste);
-int decolle(listeAvion* avionD,piste* pisteD);
+int decolle(avion* avionD,piste* pisteD);
 int cptElement(piste* pisteR);
 listeAvion* initListe();
 avion* getAvionWithName(char* name,listeAvion* listeAvion);

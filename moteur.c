@@ -191,12 +191,12 @@ piste* getPisteWithName(int name,piste* listePiste) {
 
 
 
-int decolle(listeAvion* avionD,piste* pisteD){
-    if( pisteD->liste->Elm== avionD->Elm) {
+int decolle(avion* avionD,piste* pisteD){
+    if( pisteD->liste->Elm== avionD) {
         printf("je suis dans l'if");
-        if(avionD->Elm->etat==0){
-        if(verifPiste(avionD->Elm,pisteD)==0){
-            avionD->Elm->etat=1;
+        if(avionD->etat==0){
+        if(verifPiste(avionD,pisteD)==0){
+            avionD->etat=1;
             pisteD->liste=pisteD->liste->suiv;
             printf("décollage réussi !\n");
             return 0;
