@@ -54,6 +54,7 @@ int cptElement(piste* pisteR);
 listeAvion* initListe();
 avion* getAvionWithName(char* name,listeAvion* listeAvion);
 piste* getPisteWithName(int name, piste* listePiste);
-
+piste* RecherchePiste(piste* pisteR , avion* AvionR);
+int AvionInListe(piste* pisteRecherche , avion * avionRecherche);
 
 #endif

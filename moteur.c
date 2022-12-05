@@ -38,7 +38,7 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
  */
 piste* initPiste(){
     piste* elmPiste=malloc(sizeof(piste));
-    elmPiste->pisteType=UNDEFINED;
+    elmPiste->pisteType=PARKING;
     elmPiste->liste=initListe();
     elmPiste->longueur=-1;
     elmPiste->numPiste=-1;
@@ -152,22 +152,6 @@ int verifPiste(avion* avion,piste* piste){
 }   
 
 
-/*function atterir who serve to land an element "plane"
- *@param avion* avion, the plane concerned
- *@param piste* piste, the piste concenrned
- *return 0 if it's true or 1 else;
- */
-int atterir(avion* avionA,piste* pisteA){
-    if(avionA->etat==1){
-        if(verifPiste(avionA,pisteA)==0){
-            avionA->etat=0;
-            printf("atterissage réussi !\n");
-            return 0;
-        }
-    }
-    return 1;
-}
-
 avion* getAvionWithName(char* name,listeAvion* listeAvion) {
     while(listeAvion->Elm != NULL ){
         if(strcmp(listeAvion->Elm->identifiant,name)==0){
@@ -188,12 +172,43 @@ piste* getPisteWithName(int name,piste* listePiste) {
     return NULL;
 }
 
-
+/*function atterir who serve to land an element "plane"
+ *@param avion* avion, the plane concerned
+ *@param piste* piste, the piste concenrned
+ *return 0 if it's true or 1 else;
+ */
+int atterir(avion* avionA,piste* pisteA){
+    printf("%d",avionA->etat);
+    if(avionA->etat==1){
+        if(verifPiste(avionA,pisteA)==0){
+            avionA->etat=0;
+            printf("%d",avionA->etat);
+            while(pisteA->pisteType != PARKING || pisteA->prec != NULL) {
+                pisteA=pisteA->prec;
+            }
+            enfile(pisteA->liste,avionA);
+            return 0;
+        }
+    }
+    return 1;
+}
 
 
 int decolle(avion* avionD,piste* pisteD){
     if( pisteD->liste->Elm== avionD) {
-        printf("je suis dans l'if");
+        if(avionD->etat==0){
+        if(verifPiste(avionD,pisteD)==0){
+            avionD->etat=1;
+            pisteD->liste=pisteD->liste->suiv;
+            return 0;
+        }
+    }
+    }
+    return 1;
+}
+/*
+int deplace(avion* avionD,piste* pisteD){
+    if( pisteD->numPiste==PARKING) {
         if(avionD->etat==0){
         if(verifPiste(avionD,pisteD)==0){
             avionD->etat=1;
@@ -204,4 +219,31 @@ int decolle(avion* avionD,piste* pisteD){
     }
     }
     return 1;
+}
+*/
+
+int AvionInListe(piste* pisteRecherche , avion * avionRecherche){
+   listeAvion* tmp = pisteRecherche -> liste;
+    while(tmp -> suiv != NULL) {
+       if(tmp->Elm == avionRecherche) {
+            return 0 ;
+        }
+        tmp=tmp -> suiv;
+    }
+    return 1;
+}
+
+piste* RecherchePiste(piste* pisteR , avion* AvionR){
+    printf("nom de l'avion : %s",AvionR->identifiant);
+    printf("avion état : %d",AvionR->etat);
+    while(pisteR ->suiv != NULL ){
+        if(AvionInListe(pisteR,AvionR)== 0 ){
+            return pisteR;
+        }
+        pisteR = pisteR -> suiv ;
+    }
+    if(AvionInListe(pisteR,AvionR)== 0 ){
+            return pisteR;
+        }
+    return NULL;
 }
