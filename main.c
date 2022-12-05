@@ -12,12 +12,11 @@ int main() {
      *Création de la base de données pour le test !
      */
   
-    piste* PisteTEST=NULL;
+    piste* pistes=NULL;
     listeAvion* liste = malloc(sizeof(listeAvion));
     liste = loadAvions(liste,"saves/globalAvions.save");
 
-    PisteTEST=initPiste();
-    PisteTEST=creerPiste(14,400,PETITE,5,liste);
+    pistes = genPistes(pistes, liste);
 
 
     /*avion* New=NULL;
@@ -40,11 +39,9 @@ int main() {
 
     //affiche_avion();
 
-    menu(liste,PisteTEST);
+    menu(liste,pistes);
     //affichePiste(PisteTEST);
 //fin test moteur
    // animationAvion();
-
-    //genPistes(PisteTEST, liste);
     return 0;
 }
