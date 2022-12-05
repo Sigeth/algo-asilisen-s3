@@ -33,8 +33,8 @@ avion* creerAvion(char* id,TypeAvion avionType,int etat,int nbPassagers){
 }
 
 
-/*function initAvion
- * return an struct avion type element with default value
+/*function initPiste
+ * return a struct piste type element with default value
  */
 piste* initPiste(){
     piste* elmPiste=malloc(sizeof(piste));
@@ -47,6 +47,10 @@ piste* initPiste(){
     return elmPiste;
 }
 
+
+/*function compteurElm
+ * return the nuber of 'avion'in a struct piste
+ */
 int compteurElm(piste* PisteCpt){
     int cpt=0; 
     while(PisteCpt->liste != NULL) {
@@ -55,7 +59,6 @@ int compteurElm(piste* PisteCpt){
     }
     return cpt;
 }
-
 
 
 listeAvion* initListe(){
