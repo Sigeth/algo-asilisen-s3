@@ -201,31 +201,23 @@ int decolle(avion* avionD,piste* pisteD){
             avionD->etat=1;
             pisteD->liste=pisteD->liste->suiv;
             return 0;
-     //   }
     }
     }}
     return 1;
 }
-/*
-int deplace(avion* avionD,piste* pisteD){
-    if( pisteD->numPiste==PARKING) {
-        if(avionD->etat==0){
-        if(verifPiste(avionD,pisteD)==0){
-            avionD->etat=1;
-            pisteD->liste=pisteD->liste->suiv;
-            printf("décollage réussi !\n");
-            return 0;
-        }
+
+
+int deplace(avion* avionDplc,piste* pisteDepart, piste* pisteDplc){
+      if(pisteDepart != pisteDplc ){
+
+      }
     }
-    }
-    return 1;
-}
-*/
+
 
 int AvionInListe(piste* pisteRecherche , avion * avionRecherche){
    listeAvion* tmp = pisteRecherche -> liste;
     while(tmp -> suiv != NULL) {
-       if(tmp->Elm == avionRecherche) {
+       if( strcmp(tmp->Elm->identifiant, avionRecherche->identifiant) == 0) {
             return 0 ;
         }
         tmp=tmp -> suiv;
