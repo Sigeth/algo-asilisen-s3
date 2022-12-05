@@ -51,10 +51,11 @@ piste* initPiste(){
 /*function compteurElm
  * return the nuber of 'avion'in a struct piste
  */
-int compteurElm(piste* PisteCpt){
-    int cpt=0; 
-    while(PisteCpt->liste != NULL) {
-        PisteCpt->liste=PisteCpt->liste->suiv;
+int cptElement(piste* PisteCpt){
+    int cpt=0;
+    listeAvion* tmp = PisteCpt->liste;
+    while(tmp != NULL) {
+        tmp=tmp->suiv;
         cpt++;
     }
     return cpt;
@@ -91,6 +92,7 @@ piste* creerPiste(int numPiste,int longueur,TypePiste pisteType,int nbAvionMax,l
     elmPiste->liste=elm;
     elmPiste->longueur=longueur;
     elmPiste->pisteType=pisteType;
+    elmPiste->nbAvionsMax = nbAvionMax;
     elmPiste->prec=NULL;
     elmPiste->suiv=NULL;
     return elmPiste;
