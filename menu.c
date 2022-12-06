@@ -45,7 +45,9 @@ void menu(listeAvion* liste, piste* pistes){
 				//Afficher avions
 				clrscr();
 				printf("---------------------------------------------------------- Liste des avions ----------------------------------------------------------\n");
+				couleur("1;32");
 				afficheListeAvion(liste);
+				couleur("1;35");
 				printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
 				printf("Quel avions voulez-vous afficher ? ");
 				scanf("%s", choixAvion);
@@ -57,7 +59,9 @@ void menu(listeAvion* liste, piste* pistes){
 						printf("Cet avion n'existe pas.\n");
 					}
 					else{
+						couleur("1;0");
 						animationAvion(0);
+						couleur("1;35");
 						//afficheAvion(avionAAfficher);
 						//Si avion au sol
 						if(avionAAfficher->etat == 0){
@@ -70,7 +74,9 @@ void menu(listeAvion* liste, piste* pistes){
 							printf("Voulez vous faire atterir l'avion ? (oui ou non)\n");
 							scanf("%s", atterissage);
 							if(strcmp(atterissage, "oui")==0){
+								couleur("1;32");
 								affichePisteAvion(pistes);
+								couleur("1;35");
 								printf("\n");
 								printf("Sur quelle piste voulez-vous faire atterir l'avion ? (donner son numéro) ");
 								scanf("%d", &pisteAtterissage);
@@ -81,12 +87,16 @@ void menu(listeAvion* liste, piste* pistes){
 								}
 								else{
 									clrscr();
+									couleur("1;0");
 									animationAvion(2);
+									couleur("1;35");
 								}
 							}
 						}
 					}
+					couleur("1;32");
 					afficheAvion(avionAAfficher);
+					couleur("1;35");
 					printf("\n");
 					printf("Appuyer sur 1 pour quitter et retourner au menu principal");
 					printf("\n");
@@ -100,7 +110,9 @@ void menu(listeAvion* liste, piste* pistes){
 				//Afficher pistes
 				clrscr();
 				printf("---------------------------------------------------------- Liste des pistes ----------------------------------------------------------\n");
+				couleur("1;32");
 				affichePisteAvion(pistes);
+				couleur("1;35");
 				printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
 				printf("Quelle piste voulez-vous afficher ? ");
 				scanf("%d", &choixPistes);
@@ -108,9 +120,13 @@ void menu(listeAvion* liste, piste* pistes){
 				printf("\n");
 				while(quitter != 1){
 					piste* pisteAAfficher = getPisteWithName(choixPistes, pistes);
+					couleur("1;32");
 					affichePiste(pisteAAfficher);
+					couleur("1;35");
 					printf("Liste des avions sur cette piste : \n");
+					couleur("1;32");
 					afficheListeAvion(pisteAAfficher->liste);
+					couleur("1;35");
 					printf("\n");
 					//Propose de décoller si avion sur une piste, et de déplacer si l'avion est dans le parking
 					printf("Voulez vous faire décoller/déplacer un avion ? (oui ou non)\n");
@@ -144,7 +160,9 @@ void menu(listeAvion* liste, piste* pistes){
 									}
 									else{
 										clrscr();
+										couleur("1;0");
 										animationAvion(1);
+										couleur("1;35");
 									}
 								}
 							}
@@ -153,7 +171,9 @@ void menu(listeAvion* liste, piste* pistes){
 							}
 								
 						}
+						couleur("1;32");
 						afficheAvion(avionADeplacer);
+						couleur("1;35");
 					}
 					printf("\n");
 					printf("Appuyer sur 1 pour quitter et retourner au menu principal");
