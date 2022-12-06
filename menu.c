@@ -64,7 +64,9 @@ void menu(listeAvion* liste, piste* pistes){
 							printf("Voulez vous faire décoller/déplacer l'avion ? (oui ou non)\n");
 							scanf("%s", decollage);
 							if(strcmp(decollage, "oui")==0){
-								int testDecollage = decolle(avionAAfficher, pistes);
+								piste* PisteAvionDecolle= malloc(sizeof(piste));
+								PisteAvionDecolle=RecherchePiste(pistes,avionAAfficher);
+								int testDecollage = decolle(avionAAfficher, PisteAvionDecolle);
 								if(testDecollage == 1){
 									printf("L'avion n'a pas pu décoller car il y a d'autres avions avant lui dans la liste d'attente\n");
 								}
