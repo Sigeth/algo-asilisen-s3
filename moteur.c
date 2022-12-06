@@ -205,16 +205,33 @@ int decolle(avion* avionD,piste* pisteD){
     return 1;
 }
 
-/*
+
 int deplace(avion* avionDplc,piste* pisteDepart, piste* pisteDplc){
       if(pisteDepart != pisteDplc ){
         if(AvionInListe(pisteDepart,avionDplc)==0){
             enfile(pisteDplc->liste,avionDplc);
-            //supprimer un element mais j'y arrive pas encore on verra ça demain
+            pisteDepart->liste=supprElm(pisteDepart->liste,avionDplc);
+            return 0;
             }
       }
+      return 1;
     }
-*/
+
+listeAvion* supprElm(listeAvion* liste, avion* Elm){
+    listeAvion* tmp = liste;
+    while(tmp->suiv != NULL ){
+        if(strcmp(tmp->Elm->identifiant, Elm->identifiant) == 0){
+            if(tmp->prec == NULL){
+                tmp = tmp -> suiv;
+                tmp -> prec = NULL;
+                return tmp;
+        }
+            tmp->prec->suiv=tmp->suiv;
+    }
+        tmp=tmp->suiv;
+    }
+    return liste;
+}
 
 
 int AvionInListe(piste* pisteRecherche , avion * avionRecherche){

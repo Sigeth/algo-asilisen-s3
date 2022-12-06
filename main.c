@@ -15,29 +15,27 @@ int main() {
     piste* pistes=NULL;
     listeAvion* liste = malloc(sizeof(listeAvion));
     liste = loadAvions(liste,"saves/globalAvions.save");
-    pistes = loadPistes(pistes, "saves/pistes.save");
+    pistes = loadPistes(pistes, "saves/pistes.save");   
 
-    /*avion* New=NULL;
-    New=initAvion(New);
-    New=creerAvion("omg",0,0,150);
-    
-    liste=enfile(liste,New);*/
-    
-    /*
-    afficheListeAvion(liste);
-    liste->Elm->etat=1;
-    int  i= decolle(liste->Elm,PisteTEST);
-    afficheListeAvion(liste);
-    */
-   
-    
-    //affichePiste(PisteTEST);
-    //int i = compteurElm(PisteTEST);
-    //printf("\n OMG ON ARRETE TOUT ! IL Y A : %d",i);
+    int i  = AvionInListe(pistes,liste->Elm);
+    printf("Ok : i  = %d\n",i);
+     piste* pisteTest= RecherchePiste(pistes,liste->suiv->suiv->suiv->suiv->suiv->Elm);
+     if(pisteTest != NULL ){
+      printf("omg piste trouvé : N° :%d",pisteTest->numPiste);
+     } else {
+      printf("avion en vol ");
+    }
+    afficheListeAvion(pisteTest->liste);
+    deplace(liste->suiv->suiv->suiv->suiv->suiv->Elm,pisteTest,pisteTest->suiv);
+    printf("omg l'avion vion vion c'est %s",liste->suiv->suiv->suiv->suiv->suiv->Elm->identifiant);
+    afficheListeAvion(pisteTest->liste);
+    printf("\n");
+    afficheListeAvion(pisteTest->suiv->liste);
+  // menu(liste,pistes);
 
-    //affiche_avion();
 
-    menu(liste,pistes);
+
+  // menu(liste,pistes);
     //affichePiste(PisteTEST);
 //fin test moteur
    // animationAvion();

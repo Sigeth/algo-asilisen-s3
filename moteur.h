@@ -56,5 +56,9 @@ avion* getAvionWithName(char* name,listeAvion* listeAvion);
 piste* getPisteWithName(int name, piste* listePiste);
 piste* RecherchePiste(piste* pisteR , avion* AvionR);
 int AvionInListe(piste* pisteRecherche , avion * avionRecherche);
+listeAvion* supprElm(listeAvion* liste, avion* Elm);
+int deplace(avion* avionDplc,piste* pisteDepart, piste* pisteDplc);
+
+
 
 #endif
