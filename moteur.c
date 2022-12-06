@@ -141,8 +141,8 @@ int verifPiste(avion* avion,piste* piste){
         return 1;
     }
     //large runway
-    if(piste->pisteType==3){
-        if(avion->avionType == 3 || avion->avionType == 2){
+    if(piste->numPiste==3){
+        if(avion->avionType ==  || avion->avionType == 2){
             return 0;
         }
         return 1;

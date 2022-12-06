@@ -144,7 +144,7 @@ void menu(listeAvion* liste, piste* pistes){
 									scanf("%d", &choixPisteDeplacement);
 									printf("\n");
 									piste* pisteDplc = getPisteWithName(choixPisteDeplacement, pistes);
-									int testDeplacement = deplace(avionADeplacer, PARKING, pisteDplc);
+									int testDeplacement = deplace(avionADeplacer, pistes, pisteDplc);
 									if(testDeplacement == 1){
 										printf("L'avion n'a pas pu être déplacé car la piste est pleine ou sa taille n'est pas adapté à l'avion\n");
 									}
