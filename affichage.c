@@ -852,7 +852,14 @@ void affichePisteAvion(piste* piste){
         default:
             break;
         }
-        printf("%6d%5s|\n",cptElement(piste)," ");
+        if(piste->nbAvionsMax+cptElement(piste) > 10)
+        {
+            printf("%4d/%d%4s|\n",cptElement(piste),piste->nbAvionsMax," ");
+        }
+        else
+        {
+            printf("%4d/%d%5s|\n",cptElement(piste),piste->nbAvionsMax," ");
+        }
 
         piste=piste->suiv;
     }
@@ -884,7 +891,7 @@ void affichePiste(piste* piste){
     default:
         break;
     }
-    printf("%6d%5s|\n",cptElement(piste)," ");
+    printf("%4d/%d%4s|\n",cptElement(piste),piste->nbAvionsMax," ");
     printf("                                    ----------------------------------------------------------------\n");
     
 }
