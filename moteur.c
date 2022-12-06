@@ -133,16 +133,17 @@ listeAvion* enfile(listeAvion* liste,avion* elm){
  */
 int verifPiste(avion* avion,piste* piste){
     //small or medium runway 
-    if(piste->pisteType!=PARKING && piste->pisteType <3) {
+    if(piste->numPiste!=0 && piste->numPiste <3) {
         if(avion->avionType == 1 || avion->avionType == 3){
-            printf("peut atterir");
             return 0;
         }
         return 1;
     }
     //large runway
+
     if(piste->numPiste==3){
-        if(avion->avionType == AVIONAFFAIRE || avion->avionType == AVIONLIGNE){
+        
+        if(avion->avionType ==2){
             return 0;
         }
         return 1;
