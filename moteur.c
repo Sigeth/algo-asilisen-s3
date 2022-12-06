@@ -142,7 +142,7 @@ int verifPiste(avion* avion,piste* piste){
     }
     //large runway
     if(piste->numPiste==3){
-        if(avion->avionType ==  || avion->avionType == 2){
+        if(avion->avionType == AVIONAFFAIRE || avion->avionType == AVIONLIGNE){
             return 0;
         }
         return 1;
