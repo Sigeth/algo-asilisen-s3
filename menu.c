@@ -58,23 +58,12 @@ void menu(listeAvion* liste, piste* pistes){
 					}
 					else{
 						animationAvion(0);
-						afficheAvion(avionAAfficher);
+						//afficheAvion(avionAAfficher);
 						//Si avion au sol
 						if(avionAAfficher->etat == 0){
-							printf("Voulez vous faire décoller ? (oui ou non)\n");
-							scanf("%s", decollage);
-							if(strcmp(decollage, "oui")==0){
-								piste* PisteAvionDecolle= malloc(sizeof(piste));
-								PisteAvionDecolle=RecherchePiste(pistes,avionAAfficher);
-								int testDecollage = decolle(avionAAfficher, PisteAvionDecolle);
-								if(testDecollage == 1){
-									printf("L'avion n'a pas pu décoller car il y a d'autres avions avant lui dans la liste d'attente\n");
-								}
-								else{
-									clrscr();
-									animationAvion(1);
-								}
-							}
+							//piste* PisteAvionDecolle= malloc(sizeof(piste));
+							//PisteAvionDecolle=RecherchePiste(pistes,avionAAfficher);
+							//printf("L'avion est sur la piste : %d",PisteAvionDecolle->numPiste);
 						}
 						//Si avion en vol
 						if(avionAAfficher->etat == 1){
@@ -143,7 +132,7 @@ void menu(listeAvion* liste, piste* pistes){
 									scanf("%d", &choixPisteDeplacement);
 									printf("\n");
 									piste* pisteDplc = getPisteWithName(choixPisteDeplacement, pistes);
-									int testDeplacement = deplace(avionADeplacer, pistes, pisteDplc);
+									int testDeplacement = deplace(avionADeplacer, pistes, pisteDplc);	
 									if(testDeplacement == 1){
 										printf("L'avion n'a pas pu être déplacé car la piste est pleine ou sa taille n'est pas adapté à l'avion\n");
 									}
