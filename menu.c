@@ -61,8 +61,7 @@ void menu(listeAvion* liste, piste* pistes){
 						afficheAvion(avionAAfficher);
 						//Si avion au sol
 						if(avionAAfficher->etat == 0){
-							//Propose de décoller si avion sur une piste, et de déplacer si l'avion est dans le parking
-							printf("Voulez vous faire décoller/déplacer l'avion ? (oui ou non)\n");
+							printf("Voulez vous faire décoller ? (oui ou non)\n");
 							scanf("%s", decollage);
 							if(strcmp(decollage, "oui")==0){
 								piste* PisteAvionDecolle= malloc(sizeof(piste));
