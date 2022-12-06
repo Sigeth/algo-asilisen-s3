@@ -182,7 +182,6 @@ int atterir(avion* avionA,piste* pisteA){
     if(avionA->etat==1){
         if(verifPiste(avionA,pisteA)==0){
             avionA->etat=0;
-            printf("%d",avionA->etat);
             while(pisteA->pisteType != PARKING || pisteA->prec != NULL) {
                 pisteA=pisteA->prec;
             }
@@ -206,12 +205,16 @@ int decolle(avion* avionD,piste* pisteD){
     return 1;
 }
 
-
+/*
 int deplace(avion* avionDplc,piste* pisteDepart, piste* pisteDplc){
       if(pisteDepart != pisteDplc ){
-
+        if(AvionInListe(pisteDepart,avionDplc)==0){
+            enfile(pisteDplc->liste,avionDplc);
+            //supprimer un element mais j'y arrive pas encore on verra ça demain
+            }
       }
     }
+*/
 
 
 int AvionInListe(piste* pisteRecherche , avion * avionRecherche){
