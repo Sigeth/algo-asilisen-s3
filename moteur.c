@@ -207,7 +207,7 @@ int decolle(avion* avionD,piste* pisteD){
 
 
 int deplace(avion* avionDplc,piste* pisteDepart, piste* pisteDplc){
-      if(pisteDepart != pisteDplc ){
+      if(pisteDepart != pisteDplc && verifPiste(avionDplc,pisteDplc)==0){
         if(AvionInListe(pisteDepart,avionDplc)==0){
             enfile(pisteDplc->liste,avionDplc);
             pisteDepart->liste=supprElm(pisteDepart->liste,avionDplc);
