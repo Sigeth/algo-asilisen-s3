@@ -5,6 +5,11 @@
 #include <stdbool.h>
 #include "sauvegarde.h"
 
+/**
+ * Generate a random database of planes
+ * @param liste - list where the planes will be added
+ * @return a database with planes
+ */
 listeAvion* genBddRandom(listeAvion* liste) {
     srand(time(NULL));
 
@@ -39,6 +44,13 @@ listeAvion* genBddRandom(listeAvion* liste) {
     return liste;
 }
 
+/**
+ * Save a list of planes in a file
+ * @param liste - database of planes to save
+ * @param nomFichier - filename where the database will be saved
+ * @return 1 if everything went well, 0 otherwise
+ */
+
 int saveAvions(listeAvion* liste, char* nomFichier) {
     FILE* bdd = fopen(nomFichier, "wb");
 
@@ -62,6 +74,13 @@ int saveAvions(listeAvion* liste, char* nomFichier) {
     }
 }
 
+/**
+ * Load a database from a file
+ * @param liste - list where the planes will be loaded on
+ * @param nomFichier - database's filename to load
+ * @return databse loaded from the file
+ */
+
 listeAvion* loadAvions(listeAvion* liste, char* nomFichier) {
     FILE* bdd = fopen(nomFichier, "rb");
     listeAvion* prev = NULL;
@@ -83,6 +102,13 @@ listeAvion* loadAvions(listeAvion* liste, char* nomFichier) {
 
     return liste;
 }
+
+/**
+ * Generate 4 pistes, one from each type, and fill them randomly with planes
+ * @param listePistes - list where the pistes will be added
+ * @param listeAvions - database of planes to add them to the pistes
+ * @return database of 4 pistes
+ */
 
 piste* genPistes(piste* listePistes, listeAvion* listeAvions) {
 
@@ -145,6 +171,13 @@ piste* genPistes(piste* listePistes, listeAvion* listeAvions) {
     return parking;
 }
 
+/**
+ * Save a database into a file
+ * @param liste - the database to save
+ * @param nomFichier - filename where the database will be saved
+ * @return 1 if everything went well, 0 otherwise
+ */
+
 int savePistes(piste* liste, char* nomFichier) {
     FILE* bdd = fopen(nomFichier, "wb");
 
@@ -172,6 +205,13 @@ int savePistes(piste* liste, char* nomFichier) {
         return 1;
     }
 }
+
+/**
+ * Load a database from a file
+ * @param liste - list where the database will be loaded on
+ * @param nomFichier - filename of the saved database
+ * @return loaded database from filename
+ */
 
 piste* loadPistes(piste* liste, char* nomFichier) {
     FILE *bdd = fopen(nomFichier, "rb");
